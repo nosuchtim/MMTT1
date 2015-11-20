@@ -1,0 +1,42 @@
+﻿Build started 3/6/2011 2:04:56 PM.
+     1>Project "C:\local\Cinder\blocks\cvblobslib\src\cvblobslib.vcxproj" on node 2 (rebuild target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\Debug\cvblobslib.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\local\Cinder\blocks\opencv\include\OpenCV /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MTd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt blob.cpp BlobContour.cpp BlobOperators.cpp BlobResult.cpp ComponentLabeling.cpp  /Qopenmp   /Qopenmp 
+     1>cl : Command line warning D9002: ignoring unknown option '/Qopenmp'
+     1>cl : Command line warning D9002: ignoring unknown option '/Qopenmp'
+         blob.cpp
+     1>c:\local\cinder\blocks\cvblobslib\src\blob.cpp(586): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\local\cinder\blocks\cvblobslib\src\blob.cpp(587): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\local\cinder\blocks\cvblobslib\src\blob.cpp(592): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\local\cinder\blocks\cvblobslib\src\blob.cpp(603): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\local\cinder\blocks\cvblobslib\src\blob.cpp(624): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         BlobContour.cpp
+         BlobOperators.cpp
+         BlobResult.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+     1>c:\local\cinder\blocks\cvblobslib\src\blobresult.cpp(934): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+         ComponentLabeling.cpp
+     1>c:\local\cinder\blocks\cvblobslib\src\componentlabeling.cpp(318): warning C4244: 'argument' : conversion from 'short' to 't_chainCode', possible loss of data
+     1>c:\local\cinder\blocks\cvblobslib\src\componentlabeling.cpp(346): warning C4244: 'argument' : conversion from 'short' to 't_chainCode', possible loss of data
+         Generating Code...
+       Lib:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:".\Debug\cvblobslib.lib" /NOLOGO /NODEFAULTLIB /NODEFAULTLIB:LIBCMT /REMOVE:LIBCMT .\Debug\blob.obj
+         .\Debug\BlobContour.obj
+         .\Debug\BlobOperators.obj
+         .\Debug\BlobResult.obj
+         .\Debug\ComponentLabeling.obj
+     1>LINK : warning LNK4014: cannot find member object LIBCMT
+         cvblobslib.vcxproj -> C:\local\Cinder\blocks\cvblobslib\src\.\Debug\cvblobslib.lib
+       BscMake:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\Debug\cvblobslib.bsc" .\Debug\blob.sbr .\Debug\BlobContour.sbr .\Debug\BlobOperators.sbr .\Debug\BlobResult.sbr .\Debug\ComponentLabeling.sbr
+       FinalizeBuildStatus:
+         Deleting file ".\Debug\cvblobslib.unsuccessfulbuild".
+         Touching ".\Debug\cvblobslib.lastbuildstate".
+     1>Done Building Project "C:\local\Cinder\blocks\cvblobslib\src\cvblobslib.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:18.32

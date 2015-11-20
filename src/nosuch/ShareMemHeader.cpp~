@@ -1,0 +1,38 @@
+#include "NosuchUtil.h"
+#include "SharedMemHeader.h"
+
+void
+check_mmtt_header(MMTT_SharedMemHeader* hdr) {
+	int nused = 0;
+	if ( hdr->buff_inuse[0] )
+		nused++
+	if ( hdr->buff_inuse[1] )
+		nused++
+	if ( hdr->buff_inuse[2] )
+		nused++
+
+	bool ptr_used[3];
+	ptr_used[0] = false;
+	ptr_used[1] = false;
+	ptr_used[2] = false;
+	if ( hdr->buff_being_constructed != BUFF_UNSET ) {
+		ptr_used[hdr->buff_being_constructed] = true;
+	}
+	if ( hdr->buff_displayed_last_time != BUFF_UNSET ) {
+		ptr_used[hdr->buff_displayed_last_time] = true;
+	}
+	if ( hdr->buff_to_display_next != BUFF_UNSET ) {
+		ptr_used[hdr->buff_to_display_next] = true;
+	}
+
+	int nptrused = 0;
+	if ( ptr_used[0] )
+		nptrused++
+	if ( ptr_used[1] )
+		nptrused++
+	if ( ptr_used[2] )
+		nptrused++
+	if (  nused != nptrused ) {
+		NosuchDebug("HEY!  nused != nptrused?");
+	}
+}

@@ -1,0 +1,13 @@
+﻿Build started 3/6/2011 2:38:33 PM.
+     1>Project "C:\local\Cinder\blocks\cvblobslib\src\testBlobs\testBlobs.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\Debug\testBlobs.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\cvblobslib /IC:\local\OpenCV2.1\include\opencv /IC:\Users\tjt\Downloads\cvblobslib_OpenCV_v8_3 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\local\cinder\blocks\cvblobslib\src\testblobs\main.cpp(11): fatal error C1083: Cannot open include file: 'BlobResult.h': No such file or directory
+     1>Done Building Project "C:\local\Cinder\blocks\cvblobslib\src\testBlobs\testBlobs.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.08
