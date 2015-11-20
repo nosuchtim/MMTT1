@@ -1,0 +1,2 @@
+c:\python26\python.exe oscsend.py 7000@127.0.0.1 /track1/connect 1
+c:\python26\python.exe oscsend.py 7000@127.0.0.1 /layer1/clip1/connect 1

@@ -1,0 +1,230 @@
+#include <FFGL.h>
+#include <FFGLLib.h>
+#include <pthread.h>
+
+#include <iostream>
+#include <fstream>
+#include <strstream>
+#include <cstdlib> // for srand, rand
+#include <ctime>   // for time
+
+#include "NosuchUtil.h"
+
+// #define FFPARAM_BRIGHTNESS (0)
+
+static CFFGLPluginInfo PluginInfo ( 
+	PaletteFFHost::CreateInstance,	// Create method
+	"NSPL",		// Plugin unique ID
+	"Palette",	// Plugin name	
+	1,		// API major version number
+	000,		// API minor version number	
+	1,		// Plugin major version number
+	000,		// Plugin minor version number
+	FF_EFFECT,	// Plugin type
+	"Space Palette: TUIO-controlled graphics and music",	// description
+	"by Tim Thompson - me@timthompson.com" 			// About
+);
+
+bool PaletteHost::StaticInitialized = false;
+
+bool
+palette_setdll(std::string dllpath)
+{
+	dllpath = NosuchTolower(dllpath);
+
+	size_t lastslash = dllpath.find_last_of("/\\");
+	size_t lastunder = dllpath.find_last_of("_");
+	size_t lastdot = dllpath.find_last_of(".");
+	std::string suffix = (lastdot==dllpath.npos?"":dllpath.substr(lastdot));
+
+	if ( suffix != ".dll" ) {
+		NosuchDebug("Hey! dll name (%s) isn't of the form *.dll!?",dllpath.c_str());
+		return FALSE;
+	}
+
+	std::string dir = dllpath.substr(0,lastslash);
+	std::string prefix = dllpath.substr(lastslash+1,lastdot-lastslash-1);
+
+	NosuchPublicDir = dir;
+
+	NosuchDebugSetLogDirFile(dir,"debug.txt");
+
+	struct _stat statbuff;
+	int e = _stat(NosuchPublicDir.c_str(),&statbuff);
+	if ( ! (e == 0 && (statbuff.st_mode | _S_IFDIR) != 0) ) {
+		NosuchDebug("Hey! No directory %s!?",NosuchPublicDir.c_str());
+		return FALSE;
+	}
+
+	NosuchDebug("Setting NosuchPublicDir = %s",NosuchPublicDir.c_str());
+
+	return TRUE;
+
+}
+
+PaletteFFHost::PaletteFFHost() : CFreeFrameGLPlugin()
+{
+	NosuchDebug(1,"=== PaletteFFHost is being constructed.");
+
+	_recompileFunc = NULL;
+	_python_enabled = FALSE;
+	_python_events_disabled = TRUE;
+	_dotest = FALSE;
+	_textEraseTime = 0;
+
+	_resolumehost = "127.0.0.1";  // This should always be the case
+	_resolume_output_port = DEFAULT_RESOLUME_PORT;
+
+	_pyfflehost = "127.0.0.1";  // This should always be the case
+	_pyffle_output_port = DEFAULT_PYFFLE_PORT;
+
+	_osc_input_port = DEFAULT_OSC_INPUT_PORT;
+	_osc_input_host = DEFAULT_OSC_INPUT_HOST;
+	_http_input_port = DEFAULT_HTTP_INPUT_PORT;
+
+	_scheduler = new NosuchScheduler();
+
+	_looper = new NosuchLooper(this);
+	_daemon = NULL;
+
+	initialized = false;
+	gl_shutting_down = false;
+
+	width = 1.0f;
+	height = 1.0f;
+
+	// Don't do any OpenGL calls here, it isn't initialized yet.
+
+	NosuchLockInit(&json_mutex,"json");
+	json_cond = PTHREAD_COND_INITIALIZER;
+	json_pending = false;
+
+	NosuchLockInit(&palette_mutex,"palette");
+	NosuchLockInit(&python_mutex,"python");
+
+	// Input properties
+#ifdef FFGL_SOURCE
+	SetMinInputs(0);
+	SetMaxInputs(0);
+#else
+	SetMinInputs(1);
+	SetMaxInputs(1);
+#endif
+
+	m_filled = false;
+	m_stroked = false;
+	
+	disabled = false;
+	disable_on_exception = false;
+}
+
+PaletteFFHost::~PaletteFFHost()
+{
+	NosuchDebug(1,"PaletteFFHost destructor called");
+	gl_shutting_down = true;
+	scheduler()->Stop();
+	delete _scheduler;
+	_scheduler = NULL;
+
+	if ( _daemon != NULL ) {
+		delete _daemon;
+		_daemon = NULL;
+	}
+	NosuchDebug(1,"PaletteHost destructor end");
+}
+
+DWORD PaletteFFHost::GetParameter(DWORD dwIndex)
+{
+
+	return FF_FAIL;  // no parameters
+
+#if 0
+	DWORD dwRet;
+	switch (dwIndex) {
+
+	case FFPARAM_BRIGHTNESS:
+#pragma warning(disable:4311)
+#pragma warning(disable:4312)
+    //sizeof(DWORD) must == sizeof(float)
+    *((float *)(unsigned)(&dwRet)) = m_brightness;
+#pragma warning(default:4311)
+#pragma warning(default:4312)
+		return dwRet;
+
+	default:
+		return FF_FAIL;
+	}
+#endif
+}
+
+DWORD PaletteFFHost::SetFFParameter(const SetParameterStruct* pParam)
+{
+	if (pParam != NULL) {
+		
+		return FF_FAIL;  // no parameters
+
+#if 0
+		switch (pParam->ParameterNumber) {
+
+		case FFPARAM_BRIGHTNESS:
+      //sizeof(DWORD) must == sizeof(float)
+#pragma warning(disable:4311)
+#pragma warning(disable:4312)
+      m_brightness = *((float *)(unsigned)&(pParam->NewParameterValue));
+#pragma warning(default:4311)
+#pragma warning(default:4312)
+			break;
+
+		default:
+			return FF_FAIL;
+		}
+
+		return FF_SUCCESS;
+#endif
+	
+	}
+
+	return FF_FAIL;
+}
+
+int
+PaletteFFHost::EnableEffect(int effectnum, bool enabled)
+{
+    char buffer[1024];
+    osc::OutboundPacketStream p( buffer, sizeof(buffer) );
+	// The effectnum internally is 0-12 (or whatever the number of effects is)
+	// but Resolume knows them as effect 2-14 (effect 1 is PaletteHost)
+	effectnum += 2;
+	std::string addr = NosuchSnprintf("/activeclip/video/effect%d/bypassed",effectnum);
+	int bypassed = enabled ? 0 : 1;
+    p << osc::BeginMessage( addr.c_str() ) << bypassed << osc::EndMessage;
+    return SendToResolume(p);
+}
+
+int PaletteFFHost::SendToResolume(osc::OutboundPacketStream& p) {
+	NosuchDebug(1,"SendToResolume host=%s port=%d",_resolumehost,_resolume_output_port);
+    return SendToUDPServer(_resolumehost,_resolume_output_port,p.Data(),(int)p.Size());
+}
+
+void
+PaletteFFHost::ShowText(std::string text, int x, int y, int timeout) {
+    char buffer[1024];
+    osc::OutboundPacketStream p( buffer, sizeof(buffer) );
+    p << osc::BeginMessage( "/set_text" ) << text.c_str() << osc::EndMessage;
+    SendToUDPServer(_pyfflehost,_pyffle_output_port,p.Data(),(int)p.Size());
+    p.Clear();
+    p << osc::BeginMessage( "/set_pos" ) << x << y << osc::EndMessage;
+    SendToUDPServer(_pyfflehost,_pyffle_output_port,p.Data(),(int)p.Size());
+	if ( timeout > 0 ) {
+		_textEraseTime = Pt_Time() + timeout;
+	}
+}
+
+void
+PaletteFFHost::CheckText(int millinow) {
+	if ( _textEraseTime > 0 && millinow > _textEraseTime ) {
+		NosuchDebug("Erasing Text!");
+		_textEraseTime = 0;
+		ShowText("",0,0,0);
+	}
+}

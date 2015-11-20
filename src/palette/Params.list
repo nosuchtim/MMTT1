@@ -1,0 +1,83 @@
+#
+# THESE ARE SPRITE PARAMETERS
+#
+#name		#type	#min	#max	#paramtype	#init		#comment
+alphafinal	double	0.0	1.0	sprite	0.0		# 0-1 
+alphainitial	double	0.0	1.0	sprite	0.2		# 0-1
+alphatime	double	0.01	10.0	sprite	2.0		# secs
+aspect		double	1.0	10.0	sprite	1.0		# 1-10
+bounce		bool	false	true	sprite	false		#
+filled		bool	false	true	sprite	true		#
+huefillfinal	double	0.0	360.0	sprite	0.0		# 0-360
+huefillinitial	double	0.0	360.0	sprite	360.0		# 0-360
+huefilltime	double	0.01	10.0	sprite	5.0		# secs
+huefinal	double	0.0	360.0	sprite	360.0		# 0-360
+hueinitial	double	0.0	360.0	sprite	0.0		# 0-360
+huetime		double	0.01	10.0	sprite	5.0		# secs
+lifetime	double	0.01	10.0	sprite	8.0		#
+luminance	double	0.0	1.0	sprite	0.5		#
+mirror		string	mirrorTypes	mirrorTypes	sprite	"none"	 #
+movedir		string	movedirTypes	movedirTypes	sprite	"cursor" #
+noisevertex	double	0.0	1.0	sprite	0.0		# 0-1
+rotangdir	string	rotangdirTypes	rotangdirTypes	sprite	"random" # 0-360
+rotanginit	double	0.0	360.0	sprite	0.0		# 0-360
+rotangspeed	double	-360.0	360.0	sprite	0.0		#
+rotauto		bool	false	true	sprite	true		#
+saturation	double	0.0	1.0	sprite	1.0		#
+sizefinal	double	0.0	10.0	sprite	0.4		#
+sizeinitial	double	0.01	10.0	sprite	1.0		#
+sizetime	double	0.01	10.0	sprite	2.0		# secs
+speed		double	0.0	1.0	sprite	0.1f		#
+thickness	double	0.01	10.0	sprite	3.0		#
+#
+# THESE ARE MIDI CHANNEL PARAMETERS
+#
+#name		#type	#min		#max		#paramtype	#init		#comment
+shape		string	shapeTypes	shapeTypes	channel		"square" 	#
+behaviour	string	behaviourTypes	behaviourTypes	channel		"horizontal"	#
+hvpos		double	0.0		1.0		channel		0.5		#
+pitchoffset	double	0.0		128.0		channel		0.0		#
+pitchfactor	double	0.1		10.0		channel		1.0		#
+loopfade	double	0.25		1.0		channel		1.0		#
+looplength	int	2		128		channel		8		#
+nsprites	int	1		10000		channel		100		#
+#
+# THESE ARE REGION PARAMETERS
+#
+#name		#type	#min	#max	#paramtype	#init		#comment
+arpeggio	bool	false	true	region	false		#
+controllerchan	int	1	16	region	1		#
+controllerstyle	string	controllerstyleTypes	controllerstyleTypes	region	"modulationonly"	#
+controllerzmax	double	0.0	1.0	region	0.3		#
+controllerzmin	double	0.0	1.0	region	0.05		#
+cursorsprites	bool	false	true	region	true		#
+doquantize	bool	false	true	region	true		#
+fullrange	bool	false	true	region	false		#
+loopfade	double	0.25	1.0	region	1.0		#
+looplength	int	2	128	region	8		#
+loopnotes	int	1	250	region	25		#
+minbuttonarea	double	0.1	0.9	region	0.5		#
+minmove	double	0.0	0.3	region	0.025		#
+minmovedepth	double	0.0	0.3	region	0.025		#
+nsprites	int	1	10000	region	100		#
+outlinesprites	bool	false	true	region	false		#
+outlinensprites	int	1	100	region	20		#
+pitchmax	int	0	127	region	80		#
+pitchmin	int	0	127	region	33		#
+quantfactor	double	0.5	2.0	region	1.0		#
+quantfixed	bool	false	true	region	false		#
+shape		string	shapeTypes	shapeTypes	region	"square" #
+sound		string	None	None	region	"Dummy"		#
+soundset	int	0	7	region	0		#
+timefret1q	double	0.0	1.0	region	1.0		#
+timefret1y	double	0.0	1.0	region	0.15		#
+timefret2q	double	0.0	1.0	region	0.5		#
+timefret2y	double	0.0	1.0	region	0.5		#
+timefret3q	double	0.0	1.0	region	0.25		#
+timefret3y	double	0.0	1.0	region	0.8		#
+timefret4q	double	0.0	1.0	region	0.125		#
+timefret4y	double	0.0	1.0	region	1.0		#
+tonicchange	int	0	300*1000	region	30*1000	#
+xcontroller	int	1	127	region	3		#
+ycontroller	int	1	127	region	2		#
+zcontroller	int	1	127	region	1		#

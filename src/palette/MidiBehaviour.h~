@@ -1,0 +1,18 @@
+#ifndef _MIDIBEHAVIOUR_H
+#define _MIDIBEHAVIOUR_H
+
+class MidiBehaviour {
+
+public:
+	MidiBehaviour(Channel* c);
+	Palette* palette();
+	PaletteHost* paletteHost();
+	Channel* channel();
+
+private:
+	Channel* _channel;
+	Palette* _palette;
+	PaletteHost* _paletteHost;
+};
+
+#endif
