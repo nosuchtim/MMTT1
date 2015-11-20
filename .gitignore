@@ -27,7 +27,12 @@
 
 # misc stuff added by tjt
 *.log
+*.tlog
 *.sdf
 *.suo
 *.ipch
+*.swp
+*~
+*.lastbuildstate
+
 

@@ -41,7 +41,18 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmd
 		}
 	}
 
-	MmttServer *server = MmttServer::makeMmttServer();
+	char* cmdline = GetCommandLineA();
+	char* p = strrchr(cmdline, ' ');
+	std::string configfile;
+	if (p != NULL && *(p+1) != '\0') {
+		std::string s = NosuchSnprintf("config/%s", p + 1);
+		configfile = NosuchFullPath(s);
+	}
+	else {
+		configfile = NosuchFullPath("config/mmtt.json");
+	}
+
+	MmttServer *server = MmttServer::makeMmttServer(configfile);
 	if ( server == NULL ) {
 		NosuchDebug("Unable to create MmttServer!!?");
 		std::string msg = NosuchSnprintf("*** Error ***\n\nUnable to create MmttServer");

@@ -174,7 +174,7 @@ class MmttServer {
 	MmttServer(std::string defaultsfile);
 	~MmttServer();
 
-	static MmttServer* makeMmttServer();
+	static MmttServer* makeMmttServer(std::string configfile);
 	static void ErrorPopup(LPCWSTR msg);
 	static void ErrorPopup(const char* msg);
 
@@ -191,6 +191,8 @@ class MmttServer {
 	bool		python_events_disabled() { return false; }
 	void		lock_python();
 	void		unlock_python();
+
+	int cameraIndex() { return _cameraIndex; };
 
 	void buttonDown(std::string bn);
 	void buttonUp(std::string bn);
@@ -349,6 +351,7 @@ private:
 	std::string _patchFile;
 	std::string _patchDir;
 	std::string _cameraType;
+	int _cameraIndex;
 	std::string _tempDir;
 	int	_camWidth;
 	int	_camHeight;

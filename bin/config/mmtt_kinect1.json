@@ -1,0 +1,16 @@
+{
+  "port": 4441,
+  "camera": "kinect",
+  "camera_index": 1,
+  "patchdir": "mmtt",
+  "patch": "fullscreen_kinect1",
+  "tempdir": "c:/windows/temp",
+  "sharedmem": 0,
+  "tuio": 1,
+  "tuio.25d.clientlist": "127.0.0.1:3333",
+  "initialalign": 0,
+  "python": 0,
+  "debugtoconsole": 1,
+  "debugtolog": 1,
+  "debuglogfile": "debug.txt"
+}

@@ -1,9 +1,126 @@
-﻿Build started 11/19/2015 10:20:22 PM.
-     1>Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\ManifoldLib.lastbuildstate".
-     1>Done Building Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" (clean target(s)).
+﻿Build started 11/20/2015 10:56:03 AM.
+     1>Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\local\manifold\src\leap\include /I..\..\src\portmidi\pm_common /I..\..\src\nosuch /I..\..\src\osc\include /I"..\..\src\pthreads-win32-2.8.0\Pre-built.2\include" /I..\..\src\cvblobslib\src /I..\..\src\portmidi\porttime /I..\..\src\opencv\include /I"..\..\src\libfreenect-master\include" /I..\..\src\cJSON /I..\..\src\freeframe /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _UNICODE /D UNICODE /Gm /EHa /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\cJSON\cJSON.cpp ..\..\src\freeframe\FFGL.cpp ..\..\src\freeframe\FFGLPluginInstance.cpp ..\..\src\freeframe\ffutil.cpp ..\..\src\freeframe\WinPluginInstance.cpp ..\..\src\nosuch\NosuchDebug.cpp ..\..\src\nosuch\NosuchException.cpp ..\..\src\nosuch\NosuchHttp.cpp ..\..\src\nosuch\NosuchMidi.cpp ..\..\src\nosuch\NosuchOscInput.cpp ..\..\src\nosuch\NosuchOscTcpInput.cpp ..\..\src\nosuch\NosuchOscUdpInput.cpp ..\..\src\nosuch\NosuchSocket.cpp ..\..\src\nosuch\NosuchUtil.cpp ..\..\src\cvblobslib\src\blob.cpp ..\..\src\cvblobslib\src\BlobContour.cpp ..\..\src\cvblobslib\src\BlobOperators.cpp ..\..\src\cvblobslib\src\BlobResult.cpp ..\..\src\cvblobslib\src\ComponentLabeling.cpp ..\..\src\nosuch\ShareMemHeader.cpp ..\..\src\nosuch\UT_Mutex.cpp ..\..\src\nosuch\UT_SharedMem.cpp ..\..\src\osc\src\OscBundle.cpp ..\..\src\osc\src\OscMessage.cpp ..\..\src\osc\src\OscSender.cpp ..\..\src\oscpack\ip\IpEndpointName.cpp ..\..\src\oscpack\ip\win32\NetworkingUtils.cpp ..\..\src\oscpack\ip\win32\UdpSocket.cpp ..\..\src\oscpack\osc\OscOutboundPacketStream.cpp ..\..\src\oscpack\osc\OscPrintReceivedElements.cpp ..\..\src\oscpack\osc\OscReceivedElements.cpp ..\..\src\oscpack\osc\OscTypes.cpp
+         OscTypes.cpp
+         OscReceivedElements.cpp
+         OscPrintReceivedElements.cpp
+         OscOutboundPacketStream.cpp
+         UdpSocket.cpp
+         NetworkingUtils.cpp
+         IpEndpointName.cpp
+         OscSender.cpp
+         OscMessage.cpp
+         OscBundle.cpp
+         UT_SharedMem.cpp
+         UT_Mutex.cpp
+         ShareMemHeader.cpp
+         ComponentLabeling.cpp
+         BlobResult.cpp
+         BlobOperators.cpp
+         BlobContour.cpp
+         blob.cpp
+         NosuchUtil.cpp
+         NosuchSocket.cpp
+         Generating Code...
+         Compiling...
+         NosuchOscUdpInput.cpp
+         NosuchOscTcpInput.cpp
+         NosuchOscInput.cpp
+         NosuchMidi.cpp
+         NosuchHttp.cpp
+         NosuchException.cpp
+         NosuchDebug.cpp
+         WinPluginInstance.cpp
+         ffutil.cpp
+         FFGLPluginInstance.cpp
+         FFGL.cpp
+         cJSON.cpp
+         Generating Code...
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\local\manifold\src\leap\include /I..\..\src\portmidi\pm_common /I..\..\src\nosuch /I..\..\src\osc\include /I"..\..\src\pthreads-win32-2.8.0\Pre-built.2\include" /I..\..\src\cvblobslib\src /I..\..\src\portmidi\porttime /I..\..\src\opencv\include /I"..\..\src\libfreenect-master\include" /I..\..\src\cJSON /I..\..\src\freeframe /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _UNICODE /D UNICODE /Gm /EHa /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\src\nosuch\sha1.c ..\..\src\portmidi\pm_common\pmutil.c ..\..\src\portmidi\pm_common\portmidi.c ..\..\src\portmidi\pm_win\pmwin.c ..\..\src\portmidi\pm_win\pmwinmm.c ..\..\src\portmidi\porttime\porttime.c ..\..\src\portmidi\porttime\ptwinmm.c ..\..\src\zlib\adler32.c ..\..\src\zlib\compress.c ..\..\src\zlib\crc32.c ..\..\src\zlib\deflate.c ..\..\src\zlib\gzclose.c ..\..\src\zlib\gzlib.c ..\..\src\zlib\gzread.c ..\..\src\zlib\gzwrite.c ..\..\src\zlib\infback.c ..\..\src\zlib\inffast.c ..\..\src\zlib\inflate.c ..\..\src\zlib\inftrees.c ..\..\src\zlib\trees.c ..\..\src\zlib\uncompr.c ..\..\src\zlib\zutil.c
+         zutil.c
+         uncompr.c
+         trees.c
+         inftrees.c
+         inflate.c
+         inffast.c
+         infback.c
+         gzwrite.c
+         gzread.c
+         gzlib.c
+         gzclose.c
+         deflate.c
+         crc32.c
+         compress.c
+         adler32.c
+         ptwinmm.c
+         porttime.c
+         pmwinmm.c
+         pmwin.c
+         portmidi.c
+         Generating Code...
+         Compiling...
+         pmutil.c
+         sha1.c
+         Generating Code...
+       Lib:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"Debug\ManifoldLib.lib" /NOLOGO Debug\cJSON.obj
+         Debug\FFGL.obj
+         Debug\FFGLPluginInstance.obj
+         Debug\ffutil.obj
+         Debug\WinPluginInstance.obj
+         Debug\NosuchDebug.obj
+         Debug\NosuchException.obj
+         Debug\NosuchHttp.obj
+         Debug\NosuchMidi.obj
+         Debug\NosuchOscInput.obj
+         Debug\NosuchOscTcpInput.obj
+         Debug\NosuchOscUdpInput.obj
+         Debug\NosuchSocket.obj
+         Debug\NosuchUtil.obj
+         Debug\sha1.obj
+         Debug\blob.obj
+         Debug\BlobContour.obj
+         Debug\BlobOperators.obj
+         Debug\BlobResult.obj
+         Debug\ComponentLabeling.obj
+         Debug\ShareMemHeader.obj
+         Debug\UT_Mutex.obj
+         Debug\UT_SharedMem.obj
+         Debug\OscBundle.obj
+         Debug\OscMessage.obj
+         Debug\OscSender.obj
+         Debug\IpEndpointName.obj
+         Debug\NetworkingUtils.obj
+         Debug\UdpSocket.obj
+         Debug\OscOutboundPacketStream.obj
+         Debug\OscPrintReceivedElements.obj
+         Debug\OscReceivedElements.obj
+         Debug\OscTypes.obj
+         Debug\pmutil.obj
+         Debug\portmidi.obj
+         Debug\pmwin.obj
+         Debug\pmwinmm.obj
+         Debug\porttime.obj
+         Debug\ptwinmm.obj
+         Debug\adler32.obj
+         Debug\compress.obj
+         Debug\crc32.obj
+         Debug\deflate.obj
+         Debug\gzclose.obj
+         Debug\gzlib.obj
+         Debug\gzread.obj
+         Debug\gzwrite.obj
+         Debug\infback.obj
+         Debug\inffast.obj
+         Debug\inflate.obj
+         Debug\inftrees.obj
+         Debug\trees.obj
+         Debug\uncompr.obj
+         Debug\zutil.obj
+         ManifoldLib.vcxproj -> C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\Debug\ManifoldLib.lib
+     1>Done Building Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:21.83

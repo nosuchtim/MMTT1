@@ -1151,6 +1151,7 @@ MmttServer::AdjustValue(cJSON *params, const char *id, int direction) {
 	} else {
 		kv->set_external_value(! kv->external_value);
 	}
+	NosuchDebug("Adjusted value for '%s' is '%lf' (internal) and '%lf' (external)\n",nm.c_str(),kv->internal_value,kv->external_value);
 
 	_updateValue(nm,kv);
 	NosuchDebug(1,"mmtt_SET name=%s external=%lf internal=%lf\n",nm.c_str(),kv->external_value,kv->internal_value);
@@ -1521,8 +1522,8 @@ MmttServer::LoadPatchJson(std::string jstr)
 			NosuchDebug(1,"ignoring tilt value in patch");
 			continue;
 		}
-		NosuchDebug(1,"Patch file value for '%s' is '%lf'\n",nm.c_str(),jval->valuedouble);
 		v->set_internal_value(jval->valuedouble);
+		NosuchDebug("Patch file value for '%s' is '%lf' (internal) and '%lf' (external)\n",nm.c_str(),jval->valuedouble,v->external_value);
 		_updateValue(nm,v);
 	}
 
@@ -1586,7 +1587,8 @@ MmttServer::LoadGlobalDefaults()
 	_do_python = false;
 	_do_initialalign = false;
 	_patchFile = "";
-	_cameraType = "creative";
+	_cameraType = "kinect";
+	_cameraIndex = 0;
 	_patchDir = "mmtt";
 	_tempDir = "c:/windows/temp";
 	NosuchDebugToConsole = true;
@@ -1678,6 +1680,9 @@ MmttServer::LoadConfigDefaultsJson(std::string jstr)
 	}
 	if ( (j=getString(json,"camera")) != NULL ) {
 		_cameraType = std::string(j->valuestring);
+	}
+	if ( (j=getNumber(json,"camera_index")) != NULL ) {
+		_cameraIndex = j->valueint;
 	}
 	if ( (j=getString(json,"patch")) != NULL ) {
 		_patchFile = std::string(j->valuestring);
@@ -3112,7 +3117,7 @@ MmttServer::colorOfSession(int g)
 }
 
 MmttServer*
-MmttServer::makeMmttServer()
+MmttServer::makeMmttServer(std::string configpath)
 {
     Pt_Start(1, 0, 0);
 
@@ -3125,7 +3130,7 @@ MmttServer::makeMmttServer()
 
 	NosuchDebugSetLogDirFile(NosuchFullPath("."),"debug.txt");
 
-	MmttServer* server = new MmttServer(NosuchFullPath("config/mmtt.json"));
+	MmttServer* server = new MmttServer(configpath);
 
 	std::string stat = server->status();
 	if ( stat != "" ) {

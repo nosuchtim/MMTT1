@@ -43,6 +43,8 @@ bool KinectDepthCamera::InitializeCamera() {
     INuiSensor * sensor;
     HRESULT hr;
 
+	int camindex = _server->cameraIndex();
+
 	for ( int i=0; i<MAX_DEPTH_CAMERAS; i++ ) {
 	    m_hNextDepthFrameEvent[i] = INVALID_HANDLE_VALUE;
 	    m_pDepthStreamHandle[i] = INVALID_HANDLE_VALUE;
@@ -60,6 +62,10 @@ bool KinectDepthCamera::InitializeCamera() {
 	m_currentSensor = -1;
     for (int i = 0; i < iSensorCount; ++i) {
         // Create the sensor so we can check status, if we can't create it, move on to the next
+		if (i != camindex) {
+			NosuchDebug("Skipping Sensor for i=%d", i);
+			continue;
+		}
         hr = NuiCreateSensorByIndex(i, &sensor);
         if (FAILED(hr)) {
             continue;
