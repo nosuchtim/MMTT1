@@ -1,4 +1,4 @@
-﻿Build started 11/19/2015 8:24:56 PM.
+﻿Build started 11/19/2015 10:20:22 PM.
      1>Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\mmtt_depth\Mmtt_depth.vcxproj" on node 2 (clean target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\Mmtt_depth.lastbuildstate".
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.02
+Time Elapsed 00:00:00.03
