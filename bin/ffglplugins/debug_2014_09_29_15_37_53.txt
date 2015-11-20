@@ -1,0 +1,198 @@
+[0.000,T11835960] Setting NosuchCurrentDir = c:\local\manifold\bin\ffglplugins
+[0.000,T11835960] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T11835960] Setting tuiohost to 127.0.0.1
+[0.000,T123563224] Setting NosuchCurrentDir = c:\local\manifold\bin\ffglplugins
+[0.000,T123563224] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T123563224] Setting tuiohost to 127.0.0.1
+[0.000,T123563224] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T123563224] Setting tuiohost to 127.0.0.1
+[0.000,T123563376] Pyffle::_initialize start
+[0.000,T123563376] Pyffle(Text): initializing python
+[0.000,T123563376] Running script=import sys
+sys.path.insert(0,'C:/local/manifold/bin/ffglplugins/../python')
+[0.000,T123563376] python_change_processor behavename=Text
+[0.000,T123563376] (python) getprocessor in python begins
+[0.000,T123563376] (python) getprocessor - bname=Text bpath=pyffle.processor.text
+[0.000,T123563376] (python) TextProcessor.__init__
+[0.000,T123563376] (python) getpwd=C:\local\manifold\bin
+[0.000,T123563376] (python) Processor.__init__ time=1412029904.583000
+[0.000,T123563376] (python) Font arialbd.ttf successfully initialized
+[0.000,T123563376] (python) compute_holes is done
+[0.000,T123563376] python_init succeeded!
+[0.000,T123563376] NosuchDebug python_init succeeded!
+[0.000,T123563376] Reading PaletteHost configuration from c:\local\manifold\bin\ffglplugins/..\config\palette\default.mnf
+[0.000,T123563376] New Region of type=surface, name=LOWER sidnum=11000 rid=1
+[0.000,T123563376] New Region of type=surface, name=LEFT sidnum=12000 rid=2
+[0.000,T123563376] New Region of type=surface, name=RIGHT sidnum=13000 rid=3
+[0.000,T123563376] New Region of type=surface, name=UPPER sidnum=14000 rid=4
+[0.000,T123563376] New Region of type=button, name=LL1 sidnum=21000 rid=5
+[0.000,T123563376] New Region of type=button, name=LL2 sidnum=22000 rid=6
+[0.000,T123563376] New Region of type=button, name=LL3 sidnum=23000 rid=7
+[0.000,T123563376] New Region of type=button, name=LR1 sidnum=41000 rid=8
+[0.000,T123563376] New Region of type=button, name=LR2 sidnum=42000 rid=9
+[0.000,T123563376] New Region of type=button, name=LR3 sidnum=43000 rid=10
+[0.000,T123563376] New Region of type=button, name=UR1 sidnum=51000 rid=11
+[0.000,T123563376] New Region of type=button, name=UR2 sidnum=52000 rid=12
+[0.000,T123563376] New Region of type=button, name=UR3 sidnum=53000 rid=13
+[0.000,T123563376] New Region of type=button, name=UL1 sidnum=31000 rid=14
+[0.000,T123563376] New Region of type=button, name=UL2 sidnum=32000 rid=15
+[0.000,T123563376] New Region of type=button, name=UL3 sidnum=33000 rid=16
+[0.000,T123563376] MIDI! _do_midi set to true
+[0.000,T123563376] MIDI! _do_midi set to true
+[0.000,T123563376] After reading PaletteHost configuration from c:\local\manifold\bin\ffglplugins/..\config\palette\default.mnf
+[0.000,T123563376] Looking for MIDI output: loopMidi Port 1
+[0.000,T123563376] Opened MIDI output name=loopMIDI Port 1
+[0.000,T123563376] Looking for MIDI input: loopMidi Port 2
+[0.000,T123563376] Opened MIDI input name=loopMIDI Port 2
+[0.001,T123563376] CHANGE rgn=1 sound=Pad 01 Cinematique ch=1
+[0.156,T123563376] CHANGE rgn=2 sound=Pad 01 Cinematique ch=1
+[0.311,T123563376] CHANGE rgn=3 sound=Pad 01 Cinematique ch=1
+[0.467,T123563376] CHANGE rgn=4 sound=Pad 01 Cinematique ch=1
+[0.626,T123563376] LISTENING for OSC on UDP port 3333@127.0.0.1
+[0.630,T123563376] NOW LISTENING for HTTP on TCP port 4445
+[0.634,T123563376] PaletteDaemon is running
+[30.841,T123563528] REGION::BUTTONDOWN LR2 now=30.806 sid=42000/42986@127.0.0.1 area=0.5582
+[30.845,T123563528] calling buttonDown name=LR2 of graphicBehaviour = 2013
+[30.848,T123563528] GraphicBehaviour2013::buttonDown selected=7
+[30.852,T123563528] EFFECT SELECTION! set=7
+[30.860,T123563528] GRAPHIC SELECTION! n=7
+[30.865,T123563528] ConfigLoad file=c:/local/manifold/bin/ffglplugins/../config/palette/params/burncircles2.plt
+[30.875,T123563528] musicscale increment needs work
+[30.881,T123563528] WARNING: JSON file didn't contain a channels Object
+[30.885,T123563528] calling buttonDown name=LR2 of musicBehaviour = 2013
+[30.889,T123563528] MusicBehaviour2013::buttonDown selected=7
+[30.893,T123563528] CHANGE rgn=1 sound=Perc Caviar Cans split RR8 3-4 Vel ch=1
+[0.000,T123563680] (python) SETTING choice to t=Perky Shapes b=LR2
+[0.000,T123563680] (python) SETTING POS to 255.000000 , 350.000000
+[31.048,T123563528] CHANGE rgn=2 sound=Perc Tonic Kit ch=2
+[31.204,T123563528] CHANGE rgn=3 sound=Beatbox ch=10
+[31.359,T123563528] CHANGE rgn=4 sound=Perc Tuned Cymbals ch=3
+[31.514,T123563528] OSC processing taking too long, Check returning early, cnt=2  tm0=79402263 now=79402936
+[31.645,T123563528] REGION::BUTTONUP LR2 Cursor sid=42000/42986@127.0.0.1 pos=0.671,0.637 depth=0.059
+[31.649,T123563528] calling buttonUp of graphicBehaviour = 2013
+[32.401,T123563528] Erasing Text!
+[0.000,T123563680] (python) ATTRACT! b=0
+[0.000,T123563680] (python) SETTING choice to t= b=
+[0.000,T123563680] (python) Setting showbighint to False
+[0.000,T123563680] (python) SETTING POS to 0.000000 , 0.000000
+[33.647,T123563528] REGION::BUTTONDOWN LR1 now=33.646 sid=41000/42986@127.0.0.1 area=0.5000
+[33.652,T123563528] calling buttonDown name=LR1 of graphicBehaviour = 2013
+[33.657,T123563528] GraphicBehaviour2013::buttonDown selected=6
+[33.661,T123563528] EFFECT SELECTION! set=6
+[33.669,T123563528] GRAPHIC SELECTION! n=6
+[33.675,T123563528] ConfigLoad file=c:/local/manifold/bin/ffglplugins/../config/palette/params/fuzz1.plt
+[33.691,T123563528] musicscale increment needs work
+[33.699,T123563528] WARNING: JSON file didn't contain a channels Object
+[33.704,T123563528] calling buttonDown name=LR1 of musicBehaviour = 2013
+[33.710,T123563528] MusicBehaviour2013::buttonDown selected=6
+[33.716,T123563528] CHANGE rgn=1 sound=Bass RawNES ch=4
+[33.871,T123563528] CHANGE rgn=2 sound=Lead Swirling Combs Vibrato ch=5
+[0.000,T123563680] (python) SETTING choice to t=Fuzzy Logic b=LR1
+[0.000,T123563680] (python) SETTING POS to 290.000000 , 350.000000
+[34.028,T123563528] CHANGE rgn=3 sound=Pad Katamorphic Pyrenees ch=6
+[34.183,T123563528] CHANGE rgn=4 sound=Lead Triangular Phase ch=7
+[34.338,T123563528] OSC processing taking too long, Check returning early, cnt=1  tm0=79405069 now=79405760
+[34.529,T123563528] REGION::BUTTONUP LR1 Cursor sid=41000/42986@127.0.0.1 pos=0.679,0.683 depth=0.052
+[34.533,T123563528] calling buttonUp of graphicBehaviour = 2013
+[35.287,T123563528] Erasing Text!
+[0.000,T123563680] (python) ATTRACT! b=0
+[0.000,T123563680] (python) SETTING choice to t= b=
+[0.000,T123563680] (python) Setting showbighint to False
+[0.000,T123563680] (python) SETTING POS to 0.000000 , 0.000000
+[36.226,T123563528] REGION::BUTTONDOWN LR2 now=36.214 sid=42000/42986@127.0.0.1 area=0.5679
+[36.230,T123563528] calling buttonDown name=LR2 of graphicBehaviour = 2013
+[36.235,T123563528] GraphicBehaviour2013::buttonDown selected=7
+[36.239,T123563528] EFFECT SELECTION! set=7
+[36.247,T123563528] GRAPHIC SELECTION! n=7
+[36.252,T123563528] ConfigLoad file=c:/local/manifold/bin/ffglplugins/../config/palette/params/burncircles2.plt
+[36.259,T123563528] musicscale increment needs work
+[36.265,T123563528] WARNING: JSON file didn't contain a channels Object
+[36.270,T123563528] calling buttonDown name=LR2 of musicBehaviour = 2013
+[36.274,T123563528] MusicBehaviour2013::buttonDown selected=7
+[36.278,T123563528] CHANGE rgn=1 sound=Perc Caviar Cans split RR8 3-4 Vel ch=8
+[0.000,T123563680] (python) SETTING choice to t=Perky Shapes b=LR2
+[0.000,T123563680] (python) SETTING POS to 255.000000 , 350.000000
+[36.432,T123563528] CHANGE rgn=2 sound=Perc Tonic Kit ch=1
+[36.589,T123563528] CHANGE rgn=3 sound=Beatbox ch=10
+[36.745,T123563528] CHANGE rgn=4 sound=Perc Tuned Cymbals ch=2
+[36.902,T123563528] OSC processing taking too long, Check returning early, cnt=1  tm0=79407648 now=79408324
+[37.032,T123563528] REGION::BUTTONUP LR2 Cursor sid=42000/42986@127.0.0.1 pos=0.648,0.603 depth=0.058
+[37.036,T123563528] calling buttonUp of graphicBehaviour = 2013
+[37.788,T123563528] Erasing Text!
+[0.000,T123563680] (python) ATTRACT! b=0
+[0.000,T123563680] (python) SETTING choice to t= b=
+[0.000,T123563680] (python) Setting showbighint to False
+[0.000,T123563680] (python) SETTING POS to 0.000000 , 0.000000
+[40.284,T123563528] REGION::BUTTONDOWN LR3 now=40.267 sid=43000/42986@127.0.0.1 area=0.5062
+[40.288,T123563528] calling buttonDown name=LR3 of graphicBehaviour = 2013
+[40.292,T123563528] GraphicBehaviour2013::buttonDown selected=8
+[40.296,T123563528] EFFECT SELECTION! set=8
+[40.303,T123563528] GRAPHIC SELECTION! n=8
+[40.307,T123563528] ConfigLoad file=c:/local/manifold/bin/ffglplugins/../config/palette/params/steim_triangles.plt
+[40.318,T123563528] musicscale increment needs work
+[40.324,T123563528] WARNING: JSON file didn't contain a channels Object
+[40.329,T123563528] calling buttonDown name=LR3 of musicBehaviour = 2013
+[40.333,T123563528] MusicBehaviour2013::buttonDown selected=8
+[40.337,T123563528] CHANGE rgn=1 sound=Pad Tinkling Scapes ch=3
+[40.493,T123563528] CHANGE rgn=2 sound=Perc Bell Menu ch=4
+[0.000,T123563680] (python) SETTING choice to t=Time Ripples b=LR3
+[0.000,T123563680] (python) SETTING POS to 265.000000 , 350.000000
+[40.648,T123563528] CHANGE rgn=3 sound=Perc Dumbbell Plate RR6 4Vel ch=5
+[40.803,T123563528] CHANGE rgn=4 sound=Lead 01 Spectral Light ch=6
+[40.959,T123563528] OSC processing taking too long, Check returning early, cnt=2  tm0=79411706 now=79412381
+[41.091,T123563528] REGION::BUTTONUP LR3 Cursor sid=43000/42986@127.0.0.1 pos=0.356,0.683 depth=0.033
+[41.096,T123563528] calling buttonUp of graphicBehaviour = 2013
+[41.911,T123563528] Erasing Text!
+[0.000,T123563680] (python) ATTRACT! b=0
+[0.000,T123563680] (python) SETTING choice to t= b=
+[0.000,T123563680] (python) Setting showbighint to False
+[0.000,T123563680] (python) SETTING POS to 0.000000 , 0.000000
+[44.152,T123563528] REGION::BUTTONDOWN LR2 now=44.137 sid=42000/42986@127.0.0.1 area=0.5042
+[44.157,T123563528] calling buttonDown name=LR2 of graphicBehaviour = 2013
+[44.161,T123563528] GraphicBehaviour2013::buttonDown selected=7
+[44.165,T123563528] EFFECT SELECTION! set=7
+[44.173,T123563528] GRAPHIC SELECTION! n=7
+[44.179,T123563528] ConfigLoad file=c:/local/manifold/bin/ffglplugins/../config/palette/params/burncircles2.plt
+[44.185,T123563528] musicscale increment needs work
+[44.192,T123563528] WARNING: JSON file didn't contain a channels Object
+[44.196,T123563528] calling buttonDown name=LR2 of musicBehaviour = 2013
+[44.200,T123563528] MusicBehaviour2013::buttonDown selected=7
+[44.205,T123563528] CHANGE rgn=1 sound=Perc Caviar Cans split RR8 3-4 Vel ch=7
+[0.000,T123563680] (python) SETTING choice to t=Perky Shapes b=LR2
+[0.000,T123563680] (python) SETTING POS to 255.000000 , 350.000000
+[44.361,T123563528] CHANGE rgn=2 sound=Perc Tonic Kit ch=8
+[44.517,T123563528] CHANGE rgn=3 sound=Beatbox ch=10
+[44.673,T123563528] CHANGE rgn=4 sound=Perc Tuned Cymbals ch=1
+[44.829,T123563528] OSC processing taking too long, Check returning early, cnt=2  tm0=79415574 now=79416251
+[44.959,T123563528] REGION::BUTTONUP LR2 Cursor sid=42000/42986@127.0.0.1 pos=0.671,0.671 depth=0.062
+[44.963,T123563528] calling buttonUp of graphicBehaviour = 2013
+[45.715,T123563528] Erasing Text!
+[0.000,T123563680] (python) ATTRACT! b=0
+[0.000,T123563680] (python) SETTING choice to t= b=
+[0.000,T123563680] (python) Setting showbighint to False
+[0.000,T123563680] (python) SETTING POS to 0.000000 , 0.000000
+[85.122,T123563528] ShowAttract!
+[0.000,T123563680] (python) ATTRACT! b=1
+[139.201,T123563528] UNSHOW Attract!
+[0.000,T123563680] (python) ATTRACT! b=0
+[169.811,T123563528] ShowAttract!
+[0.000,T123563680] (python) ATTRACT! b=1
+[0.000,T123563224] deInstantiateGL in FFGL.cpp called
+[267.713,T123563224] deInstantiateGL in FFGL.cpp called
+[0.000,T123563224] PaletteDaemon DESTRUCTOR starts!
+[0.000,T123563224] PaletteDaemon destructor, removing processor from _http!
+[0.000,T123563224] PaletteDaemon destructor, removing processor from _oscinput!
+[0.000,T123563224] _oscUnlisten( _myport=3333)
+[0.000,T123563224] NosuchOscInput destructor
+[0.000,T123563224] PaletteDaemon destructor, after removing processor from _oscinput!
+[0.000,T123563224] PaletteDaemon DESTRUCTOR ends!
+[0.000,T9931416] Setting NosuchCurrentDir = c:\local\manifold\bin\ffglplugins
+[0.000,T9931416] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T9931416] Setting tuiohost to 127.0.0.1
+[0.000,T71044016] Setting NosuchCurrentDir = c:\local\manifold\bin\ffglplugins
+[0.000,T71044016] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T71044016] Setting tuiohost to 127.0.0.1
+[0.000,T71044016] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T71044016] Setting tuiohost to 127.0.0.1
+[0.000,T71044016] deInstantiateGL in FFGL.cpp called
+[0.000,T71044016] deInstantiateGL in FFGL.cpp called

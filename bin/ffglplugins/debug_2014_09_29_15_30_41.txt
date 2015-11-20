@@ -1,0 +1,120 @@
+[0.000,T3578752] Setting NosuchCurrentDir = c:\local\manifold\bin\ffglplugins
+[0.000,T3578752] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T3578752] Setting tuiohost to 127.0.0.1
+[0.000,T117643496] Setting NosuchCurrentDir = c:\local\manifold\bin\ffglplugins
+[0.000,T117643496] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T117643496] Setting tuiohost to 127.0.0.1
+[0.000,T117643496] Loading config=c:\local\manifold\bin\ffglplugins/../config/palette.json
+[0.000,T117643496] Setting tuiohost to 127.0.0.1
+[0.000,T117664984] Pyffle::_initialize start
+[0.000,T117664984] Pyffle(Text): initializing python
+[0.000,T117664984] Running script=import sys
+sys.path.insert(0,'C:/local/manifold/bin/ffglplugins/../python')
+[0.000,T117664984] python_change_processor behavename=Text
+[0.000,T117664984] (python) getprocessor in python begins
+[0.000,T117664984] (python) getprocessor - bname=Text bpath=pyffle.processor.text
+[0.000,T117664984] (python) TextProcessor.__init__
+[0.000,T117664984] (python) getpwd=C:\local\manifold\bin
+[0.000,T117664984] (python) Processor.__init__ time=1412029560.798000
+[0.000,T117664984] (python) Font arialbd.ttf successfully initialized
+[0.000,T117664984] (python) compute_holes is done
+[0.000,T117664984] python_init succeeded!
+[0.000,T117664984] NosuchDebug python_init succeeded!
+[0.000,T117664984] Reading PaletteHost configuration from c:\local\manifold\bin\ffglplugins/..\config\palette\default.mnf
+[0.000,T117664984] New Region of type=surface, name=LOWER sidnum=11000 rid=1
+[0.000,T117664984] New Region of type=surface, name=LEFT sidnum=12000 rid=2
+[0.000,T117664984] New Region of type=surface, name=RIGHT sidnum=13000 rid=3
+[0.000,T117664984] New Region of type=surface, name=UPPER sidnum=14000 rid=4
+[0.000,T117664984] New Region of type=button, name=LL1 sidnum=21000 rid=5
+[0.000,T117664984] New Region of type=button, name=LL2 sidnum=22000 rid=6
+[0.000,T117664984] New Region of type=button, name=LL3 sidnum=23000 rid=7
+[0.000,T117664984] New Region of type=button, name=LR1 sidnum=41000 rid=8
+[0.000,T117664984] New Region of type=button, name=LR2 sidnum=42000 rid=9
+[0.000,T117664984] New Region of type=button, name=LR3 sidnum=43000 rid=10
+[0.000,T117664984] New Region of type=button, name=UR1 sidnum=51000 rid=11
+[0.000,T117664984] New Region of type=button, name=UR2 sidnum=52000 rid=12
+[0.000,T117664984] New Region of type=button, name=UR3 sidnum=53000 rid=13
+[0.000,T117664984] New Region of type=button, name=UL1 sidnum=31000 rid=14
+[0.000,T117664984] New Region of type=button, name=UL2 sidnum=32000 rid=15
+[0.000,T117664984] New Region of type=button, name=UL3 sidnum=33000 rid=16
+[0.000,T117664984] MIDI! _do_midi set to true
+[0.000,T117664984] MIDI! _do_midi set to true
+[0.000,T117664984] After reading PaletteHost configuration from c:\local\manifold\bin\ffglplugins/..\config\palette\default.mnf
+[0.000,T117664984] Looking for MIDI output: loopMidi Port 1
+[0.000,T117664984] Opened MIDI output name=loopMIDI Port 1
+[0.000,T117664984] Looking for MIDI input: loopMidi Port 2
+[0.000,T117664984] Opened MIDI input name=loopMIDI Port 2
+[0.002,T117664984] CHANGE rgn=1 sound=Pad 01 Cinematique ch=1
+[0.156,T117664984] CHANGE rgn=2 sound=Pad 01 Cinematique ch=1
+[0.310,T117664984] CHANGE rgn=3 sound=Pad 01 Cinematique ch=1
+[0.464,T117664984] CHANGE rgn=4 sound=Pad 01 Cinematique ch=1
+[0.623,T117664984] LISTENING for OSC on UDP port 3333@127.0.0.1
+[0.626,T117664984] NOW LISTENING for HTTP on TCP port 4445
+[0.630,T117664984] PaletteDaemon is running
+[8.191,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[8.197,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79032421 now=79035822
+[12.681,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[12.686,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79035887 now=79040311
+[13.963,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[13.969,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79040379 now=79041594
+[14.567,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[14.573,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79041661 now=79042198
+[14.880,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[14.885,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79042264 now=79042510
+[15.133,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[15.483,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[15.488,T117694152] OSC processing taking too long, Check returning early, cnt=2  tm0=79042578 now=79043113
+[15.819,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[15.824,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79043179 now=79043449
+[16.543,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[16.547,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79043517 now=79044172
+[16.771,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[16.988,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[16.993,T117694152] OSC processing taking too long, Check returning early, cnt=2  tm0=79044239 now=79044618
+[17.186,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[17.842,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[17.847,T117694152] OSC processing taking too long, Check returning early, cnt=2  tm0=79044686 now=79045472
+[18.390,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[18.395,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79045538 now=79046020
+[18.890,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[18.895,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79046087 now=79046520
+[19.216,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[19.222,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79046588 now=79046847
+[19.638,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[19.644,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79046913 now=79047269
+[20.108,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[20.113,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79047337 now=79047738
+[23.331,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[23.336,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79047805 now=79050961
+[23.762,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[23.767,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79051028 now=79051392
+[24.113,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[24.118,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79051459 now=79051743
+[24.339,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[32.990,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[32.997,T117694152] OSC processing taking too long, Check returning early, cnt=2  tm0=79051811 now=79060622
+[34.505,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[34.510,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79060689 now=79062135
+[35.606,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[35.612,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79062201 now=79063237
+[36.093,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[36.098,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79063304 now=79063723
+[36.767,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[36.772,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79063791 now=79064397
+[238.165,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[238.170,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79064463 now=79265795
+[238.547,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[238.552,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79265860 now=79266177
+[238.903,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[238.907,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79266244 now=79266532
+[239.070,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[239.245,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[239.249,T117694152] OSC processing taking too long, Check returning early, cnt=49  tm0=79266598 now=79266874
+[239.581,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[239.586,T117694152] OSC processing taking too long, Check returning early, cnt=1  tm0=79266941 now=79267211
+[239.748,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[239.922,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[239.926,T117694152] OSC processing taking too long, Check returning early, cnt=2  tm0=79267278 now=79267551
+[240.091,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[240.267,T117694152] ProcessOscMessage, some other kind of exception occured during !?
+[240.271,T117694152] OSC processing taking too long, Check returning early, cnt=2  tm0=79267619 now=79267896

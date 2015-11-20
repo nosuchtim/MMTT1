@@ -1,0 +1,7 @@
+{
+  "port": 4444,
+  "patch": "default",
+  "debugtoconsole": 1,
+  "debugtolog": 1,
+  "debuglogfile": "debug.txt"
+}
