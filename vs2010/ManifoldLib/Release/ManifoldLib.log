@@ -1,0 +1,11 @@
+﻿Build started 7/31/2013 5:31:34 PM.
+     1>Project "C:\local\manifold\vs2010\ManifoldLib\ManifoldLib.vcxproj" on node 2 (ClCompile target(s)).
+     1>ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.. /I..\cJSON /I..\nosuch /I..\osc\include /I"..\pthreads-win32-2.8.0\Pre-built.2\include" /I..\portmidi\porttime /I..\cvblobslib\src /I..\opencv\build\include /I..\libfreenect\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\nosuch\NosuchDebug.cpp
+         NosuchDebug.cpp
+     1>..\..\src\nosuch\NosuchDebug.cpp(36): fatal error C1083: Cannot open include file: 'porttime.h': No such file or directory
+     1>Done Building Project "C:\local\manifold\vs2010\ManifoldLib\ManifoldLib.vcxproj" (ClCompile target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.68
