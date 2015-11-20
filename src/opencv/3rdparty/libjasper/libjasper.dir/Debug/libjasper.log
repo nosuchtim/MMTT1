@@ -1,0 +1,91 @@
+﻿Build started 11/27/2012 4:17:55 PM.
+     1>Project "C:\local\manifold\vs2010\opencv_localbuild\3rdparty\libjasper\libjasper.vcxproj" on node 5 (rebuild target(s)).
+     1>InitializeBuildStatus:
+         Creating "libjasper.dir\Debug\libjasper.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule C:/local/manifold/src/opencv/3rdparty/libjasper/CMakeLists.txt
+         CMake does not need to re-run because C:\local\manifold\vs2010\opencv_localbuild\3rdparty\libjasper\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:/local/manifold/src/opencv/3rdparty/libjasper /IC:/local/manifold/vs2010/opencv_localbuild /Zi /nologo /W3 /WX- /MP8 /Od /Ob0 /Oi /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D _DEBUG /D HAVE_CVCONFIG_H /D EXCLUDE_MIF_SUPPORT /D EXCLUDE_PNM_SUPPORT /D EXCLUDE_BMP_SUPPORT /D EXCLUDE_RAS_SUPPORT /D EXCLUDE_JPG_SUPPORT /D EXCLUDE_PGX_SUPPORT /D JAS_WIN_MSVC_BUILD /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Fo"libjasper.dir\Debug\\" /Fd"C:/local/manifold/vs2010/opencv_localbuild/3rdparty/lib/Debug/libjasperd.pdb" /Gd /TC /wd4013 /wd4018 /wd4715 /wd4244 /wd4101 /wd4267 /analyze- /errorReport:prompt C:\local\manifold\src\opencv\3rdparty\libjasper\jas_cm.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_debug.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_getopt.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_icc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_iccdata.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_image.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_init.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_malloc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_seq.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_stream.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_string.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_tmr.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_tvp.c C:\local\manifold\src\opencv\3rdparty\libjasper\jas_version.c C:\local\manifold\src\opencv\3rdparty\libjasper\jp2_cod.c C:\local\manifold\src\opencv\3rdparty\libjasper\jp2_dec.c C:\local\manifold\src\opencv\3rdparty\libjasper\jp2_enc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_bs.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_cs.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_dec.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_enc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_math.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_mct.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_mqcod.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_mqdec.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_mqenc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_qmfb.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_t1cod.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_t1dec.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_t1enc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_t2cod.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_t2dec.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_t2enc.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_tagtree.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_tsfb.c C:\local\manifold\src\opencv\3rdparty\libjasper\jpc_util.c  /bigobj 
+         jas_cm.c
+         jas_debug.c
+         jas_getopt.c
+         jas_icc.c
+         jas_iccdata.c
+         jas_image.c
+         jas_init.c
+         jas_malloc.c
+         jas_seq.c
+         jas_stream.c
+         jas_string.c
+         jas_tmr.c
+         jas_tvp.c
+         jas_version.c
+         jp2_cod.c
+         jp2_dec.c
+         jp2_enc.c
+         jpc_bs.c
+         jpc_cs.c
+         jpc_dec.c
+         jpc_enc.c
+         jpc_math.c
+         jpc_mct.c
+         jpc_mqcod.c
+         jpc_mqdec.c
+         jpc_mqenc.c
+         jpc_qmfb.c
+         jpc_t1cod.c
+         jpc_t1dec.c
+         jpc_t1enc.c
+         jpc_t2cod.c
+         jpc_t2dec.c
+         jpc_t2enc.c
+         jpc_tagtree.c
+         jpc_tsfb.c
+         jpc_util.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\local\manifold\vs2010\opencv_localbuild\3rdparty\lib\Debug\libjasperd.lib" /NOLOGO libjasper.dir\Debug\jas_cm.obj
+         libjasper.dir\Debug\jas_debug.obj
+         libjasper.dir\Debug\jas_getopt.obj
+         libjasper.dir\Debug\jas_icc.obj
+         libjasper.dir\Debug\jas_iccdata.obj
+         libjasper.dir\Debug\jas_image.obj
+         libjasper.dir\Debug\jas_init.obj
+         libjasper.dir\Debug\jas_malloc.obj
+         libjasper.dir\Debug\jas_seq.obj
+         libjasper.dir\Debug\jas_stream.obj
+         libjasper.dir\Debug\jas_string.obj
+         libjasper.dir\Debug\jas_tmr.obj
+         libjasper.dir\Debug\jas_tvp.obj
+         libjasper.dir\Debug\jas_version.obj
+         libjasper.dir\Debug\jp2_cod.obj
+         libjasper.dir\Debug\jp2_dec.obj
+         libjasper.dir\Debug\jp2_enc.obj
+         libjasper.dir\Debug\jpc_bs.obj
+         libjasper.dir\Debug\jpc_cs.obj
+         libjasper.dir\Debug\jpc_dec.obj
+         libjasper.dir\Debug\jpc_enc.obj
+         libjasper.dir\Debug\jpc_math.obj
+         libjasper.dir\Debug\jpc_mct.obj
+         libjasper.dir\Debug\jpc_mqcod.obj
+         libjasper.dir\Debug\jpc_mqdec.obj
+         libjasper.dir\Debug\jpc_mqenc.obj
+         libjasper.dir\Debug\jpc_qmfb.obj
+         libjasper.dir\Debug\jpc_t1cod.obj
+         libjasper.dir\Debug\jpc_t1dec.obj
+         libjasper.dir\Debug\jpc_t1enc.obj
+         libjasper.dir\Debug\jpc_t2cod.obj
+         libjasper.dir\Debug\jpc_t2dec.obj
+         libjasper.dir\Debug\jpc_t2enc.obj
+         libjasper.dir\Debug\jpc_tagtree.obj
+         libjasper.dir\Debug\jpc_tsfb.obj
+         libjasper.dir\Debug\jpc_util.obj
+         libjasper.vcxproj -> C:\local\manifold\vs2010\opencv_localbuild\3rdparty\lib\Debug\libjasperd.lib
+       FinalizeBuildStatus:
+         Deleting file "libjasper.dir\Debug\libjasper.unsuccessfulbuild".
+         Touching "libjasper.dir\Debug\libjasper.lastbuildstate".
+     1>Done Building Project "C:\local\manifold\vs2010\opencv_localbuild\3rdparty\libjasper\libjasper.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.25
