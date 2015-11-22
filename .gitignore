@@ -29,6 +29,7 @@
 *.log
 *.tlog
 *.sdf
+*.opensdf
 *.suo
 *.ipch
 *.swp
