@@ -193,6 +193,7 @@ class MmttServer {
 	void		unlock_python();
 
 	int cameraIndex() { return _cameraIndex; };
+	std::string cameraName() { return NosuchSnprintf("%s%d",_cameraType.c_str(),_cameraIndex); };
 
 	void buttonDown(std::string bn);
 	void buttonUp(std::string bn);

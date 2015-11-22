@@ -2789,6 +2789,15 @@ MmttServer::doTuio1_25D( int nactive, int numblobs, std::vector<int> &blob_sid, 
 	OscBundle bundle;
 	OscMessage msg;
 
+	bundle.clear();
+
+	// First the source message to identify who we are
+	msg.clear();
+	msg.setAddress("/tuio/25Dblb");
+	msg.addStringArg("source");
+	msg.addStringArg(NosuchSnprintf("mmtt_%s@127.0.0.1",cameraName().c_str()));
+	bundle.addMessage(msg);
+
 	long tm = timeGetTime();
 	if ( nactive == 0 ) {
 		if ( (tm - _tuio_last_sent) > 100 ) {
@@ -2808,12 +2817,11 @@ MmttServer::doTuio1_25D( int nactive, int numblobs, std::vector<int> &blob_sid, 
 	} else {
 		// Put out the TUIO messages
 
-		bundle.clear();
-
-		// First the "alive" message that lists all the active sessions
+		// The "alive" message that lists all the active sessions
 		msg.clear();
 		msg.setAddress("/tuio/25Dblb");
 		msg.addStringArg("alive");
+
 		for ( int i=0; i<numblobs; i++ ) {
 			MmttRegion* r = blob_region[i];
 			if ( r == NULL )
