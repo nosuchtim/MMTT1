@@ -14,7 +14,7 @@
     <ProjectGuid>{303F81B0-4C85-4F40-8CFC-54D85EA83F9B}</ProjectGuid>
     <RootNamespace>SpaceManifold</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>Mmtt_depth</ProjectName>
+    <ProjectName>Mmtt1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -68,7 +68,7 @@
     <Link>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>opencv_highgui242d.lib;opencv_core242d.lib;opencv_flann242d.lib;opencv_ml242d.lib;opencv_imgproc242d.lib;libjpegd.lib;libpngd.lib;libtiffd.lib;libjasperd.lib;ManifoldLib.lib;pthreadVC2.lib;winmm.lib;Kinect10.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>Debug\Mmtt_depth.exe</OutputFile>
+      <OutputFile>Debug\Mmtt1.exe</OutputFile>
       <AdditionalLibraryDirectories>..\..\src\opencv\lib\Debug;..\..\src\opencv\3rdparty\lib\Debug;..\..\vs2010\ManifoldLib\Debug;..\..\src\pthreads-win32-2.8.0\Pre-built.2\lib;C:\Python26\libs;C:\Program Files\Microsoft SDKs\Kinect\v1.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -78,7 +78,7 @@
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
-      <Command>copy Debug\Mmtt_depth.exe ..\..\bin\Mmtt_depth.exe</Command>
+      <Command>copy Debug\Mmtt1.exe ..\..\bin\Mmtt1.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

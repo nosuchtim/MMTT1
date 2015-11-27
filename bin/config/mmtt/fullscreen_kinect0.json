@@ -2,7 +2,7 @@
   "autowindow": 80,
   "backbottom": 1402,
   "backtop": 1357,
-  "blob_maxsize": 10000,
+  "blob_maxsize": 15000,
   "blob_minsize": 1000,
   "blob_param1": 100,
   "bottom": 479,

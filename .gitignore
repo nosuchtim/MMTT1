@@ -35,5 +35,7 @@
 *.swp
 *~
 *.lastbuildstate
+*.pyc
+
 
 

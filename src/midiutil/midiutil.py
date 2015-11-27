@@ -837,7 +837,7 @@ class MidiThread(Thread):
 		self.scheduled_lock.release()
 
 	def clocks2secs(self,clocks):
-		print "clocks2secs!  clocks_per_second=%f" % Midi.clocks_per_second
+		# print "clocks2secs!  clocks_per_second=%f" % Midi.clocks_per_second
 		return clocks / Midi.clocks_per_second
 
 	def schedule(self,output,msg,time=None):
@@ -860,8 +860,8 @@ class MidiThread(Thread):
 
 		tm1 = tm0 + self.clocks2secs(msg.clocks)
 
-		dbg = "SCHEDULE time=%f tm0=%f tm1=%f timenow=%f" % (time,tm0,tm1,self.timenow)
-		print dbg
+		# dbg = "SCHEDULE time=%f tm0=%f tm1=%f timenow=%f" % (time,tm0,tm1,self.timenow)
+		# print dbg
 
 		if isinstance(msg,SequencedMidiMsg):
 			n1 = ScheduledMidiMsg(tm1,msg.msg,output=output)

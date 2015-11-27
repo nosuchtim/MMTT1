@@ -1,5 +1,5 @@
-﻿Build started 11/20/2015 10:56:03 AM.
-     1>Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/22/2015 5:54:30 PM.
+     1>Project "C:\Users\tjt\Documents\github\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\local\manifold\src\leap\include /I..\..\src\portmidi\pm_common /I..\..\src\nosuch /I..\..\src\osc\include /I"..\..\src\pthreads-win32-2.8.0\Pre-built.2\include" /I..\..\src\cvblobslib\src /I..\..\src\portmidi\porttime /I..\..\src\opencv\include /I"..\..\src\libfreenect-master\include" /I..\..\src\cJSON /I..\..\src\freeframe /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _UNICODE /D UNICODE /Gm /EHa /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\cJSON\cJSON.cpp ..\..\src\freeframe\FFGL.cpp ..\..\src\freeframe\FFGLPluginInstance.cpp ..\..\src\freeframe\ffutil.cpp ..\..\src\freeframe\WinPluginInstance.cpp ..\..\src\nosuch\NosuchDebug.cpp ..\..\src\nosuch\NosuchException.cpp ..\..\src\nosuch\NosuchHttp.cpp ..\..\src\nosuch\NosuchMidi.cpp ..\..\src\nosuch\NosuchOscInput.cpp ..\..\src\nosuch\NosuchOscTcpInput.cpp ..\..\src\nosuch\NosuchOscUdpInput.cpp ..\..\src\nosuch\NosuchSocket.cpp ..\..\src\nosuch\NosuchUtil.cpp ..\..\src\cvblobslib\src\blob.cpp ..\..\src\cvblobslib\src\BlobContour.cpp ..\..\src\cvblobslib\src\BlobOperators.cpp ..\..\src\cvblobslib\src\BlobResult.cpp ..\..\src\cvblobslib\src\ComponentLabeling.cpp ..\..\src\nosuch\ShareMemHeader.cpp ..\..\src\nosuch\UT_Mutex.cpp ..\..\src\nosuch\UT_SharedMem.cpp ..\..\src\osc\src\OscBundle.cpp ..\..\src\osc\src\OscMessage.cpp ..\..\src\osc\src\OscSender.cpp ..\..\src\oscpack\ip\IpEndpointName.cpp ..\..\src\oscpack\ip\win32\NetworkingUtils.cpp ..\..\src\oscpack\ip\win32\UdpSocket.cpp ..\..\src\oscpack\osc\OscOutboundPacketStream.cpp ..\..\src\oscpack\osc\OscPrintReceivedElements.cpp ..\..\src\oscpack\osc\OscReceivedElements.cpp ..\..\src\oscpack\osc\OscTypes.cpp
          OscTypes.cpp
@@ -118,9 +118,9 @@
          Debug\trees.obj
          Debug\uncompr.obj
          Debug\zutil.obj
-         ManifoldLib.vcxproj -> C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\Debug\ManifoldLib.lib
-     1>Done Building Project "C:\Users\tjt\Documents\GitHub\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" (Build target(s)).
+         ManifoldLib.vcxproj -> C:\Users\tjt\Documents\github\MMTT1\vs2010\ManifoldLib\Debug\ManifoldLib.lib
+     1>Done Building Project "C:\Users\tjt\Documents\github\MMTT1\vs2010\ManifoldLib\ManifoldLib.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:21.83
+Time Elapsed 00:00:24.00
