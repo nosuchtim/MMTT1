@@ -1,4 +1,0 @@
-:a
-call p.bat %1
-sleep 5
-goto a
