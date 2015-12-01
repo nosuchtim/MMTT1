@@ -224,8 +224,10 @@ int MmttServer::Run(HINSTANCE hInstance, int nCmdShow)
     
     AdjustWindowRect( &rect, WS_OVERLAPPEDWINDOW, false );
 
+	std::string wname = NosuchSnprintf("MMTT for %s", cameraName().c_str());
+
     g.hwnd = CreateWindow(TEXT("MMTT"),
-                          TEXT("MMTT"),
+                          s2ws(wname).c_str(),
                           WS_OVERLAPPEDWINDOW,
                           rect.left, rect.top,  // adjusted x, y positions
                           rect.right - rect.left, rect.bottom - rect.top,  // adjusted width and height
