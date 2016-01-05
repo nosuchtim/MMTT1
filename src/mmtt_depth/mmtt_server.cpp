@@ -230,6 +230,8 @@ MmttServer::MmttServer(std::string defaultsfile)
 	mmtt_values["blob_minsize"] = &val_blob_minsize;
 	mmtt_values["confidence"] = &val_confidence;
 	mmtt_values["autowindow"] = &val_auto_window;
+	mmtt_values["shiftx"] = &val_shiftx;
+	mmtt_values["shifty"] = &val_shifty;
 
 	_camSize = cvSize(_camWidth,_camHeight);
 	_tmpGray = cvCreateImage( _camSize, 8, 1 ); // allocate a 1 channel byte image
@@ -317,6 +319,8 @@ MmttServer::init_values() {
 	val_blob_maxsize = MmttValue(10000.0,0,15000.0);
 	val_blob_minsize = MmttValue(/* 65.0 */ 350,0,5000.0);
 	val_confidence = MmttValue(200,0,4000.0);
+	val_shiftx = MmttValue(0,-639,639);
+	val_shifty = MmttValue(0,-479,479);
 	NosuchDebug(1,"TEMPORARY blob_minsize HACK - used to be 65.0");
 }
 
@@ -1566,7 +1570,22 @@ MmttServer::LoadPatchJson(std::string jstr)
 			}
 
 			int x = _camWidth - c_x->valueint - c_width->valueint;
-			CvRect rect = cvRect(x, c_y->valueint, c_width->valueint, c_height->valueint);
+			int y = c_y->valueint;
+			x += (int)val_shiftx.internal_value;
+			y += (int)val_shifty.internal_value;
+			if (x < 0) {
+				x = 0;
+			}
+			else if (x > (_camWidth - 1 - c_width->valueint)) {
+				x = _camWidth - 1 - c_width->valueint;
+			}
+			if (y < 0) {
+				y = 0;
+			}
+			else if (y > (_camHeight - 1 - c_height->valueint)) {
+				y = _camHeight - 1 - c_height->valueint;
+			}
+			CvRect rect = cvRect(x, y, c_width->valueint, c_height->valueint);
 			int first_sid = c_first_sid->valueint;
 			_new_regions.push_back(new MmttRegion(regionid,first_sid,rect));
 			NosuchDebug(1,"LoadPatchJson regionid=%d first_sid=%d x,y=%d,%d width,height=%d,%d",

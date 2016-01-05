@@ -292,6 +292,8 @@ class MmttServer {
 	MmttValue val_blob_maxsize;
 	MmttValue val_blob_minsize;
 	MmttValue val_confidence;
+	MmttValue val_shifty;
+	MmttValue val_shiftx;
 
 	uint16_t *depthmm_mid;
 	uint8_t *thresh_mid;

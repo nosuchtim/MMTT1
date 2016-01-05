@@ -4,7 +4,7 @@
 #  "camera": "pcx",
    "camera": "kinect",
   "patchdir": "mmtt",
-  "patch": "oval4",
+  "patch": "home",
   "tempdir": "c:/windows/temp",
   "sharedmem": 0,
   "tuio": 1,
