@@ -487,7 +487,7 @@ MmttServer::setup_shmem_for_outlines() {
 		return NULL;
 	}
 	MMTT_SharedMemHeader* h = (MMTT_SharedMemHeader*)data;
-	h->init();
+	h->xinit();
 
 	mem->unlock();
 	return mem;
@@ -709,6 +709,8 @@ MmttServer::shmem_update_outlines(MMTT_SharedMemHeader* h,
 
 		float depth = (float)sess->_depth_normalized;
 
+		float blobarea = float(blobrect.width * blobrect.height) / (regionrect.width*regionrect.height);
+
 		CBlobContour* contour = blob->GetExternalContour();
 		if ( ! contour ) {
 			NosuchDebug("HEY!  contour==NULL?  in shmem_update_outlines");
@@ -721,7 +723,7 @@ MmttServer::shmem_update_outlines(MMTT_SharedMemHeader* h,
 		}
 		int npoints = contourpoints->total;
 
-		h->addCursorOutline(buff,r->id,tuio_sid,blobcenterx,blobcentery,depth,npoints);
+		h->addOutline(buff,r->id,tuio_sid,blobcenterx,blobcentery,depth,blobarea,npoints);
 
 		// h->addOutline(buff,r->id,tuio_sid,npoints);
 
@@ -745,6 +747,8 @@ MmttServer::shmem_update_outlines(MMTT_SharedMemHeader* h,
 	// print_buff_info("shmem_update_outlines end",h);
 
 	h->seqnum = _tuio_fseq++;
+	h->lastUpdateTime = timeGetTime();
+	h->active = 1;
 }
 
 void

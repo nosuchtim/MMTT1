@@ -75,5 +75,8 @@
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\nosuch\SharedMemHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

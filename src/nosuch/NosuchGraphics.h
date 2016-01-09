@@ -7,6 +7,7 @@
 #define RADIAN2DEGREE(r) ((r) * 360.0 / (2.0 * (double)M_PI))
 #define DEGREE2RADIAN(d) (((d) * 2.0 * (double)M_PI) / 360.0 )
 
+#if 0
 // #define CHECK_VECTOR
 #ifdef CHECK_VECTOR
 void checkVector(NosuchVector v) {
@@ -19,6 +20,7 @@ void checkVector(NosuchVector v) {
 }
 #else
 #define checkVector(v)
+#endif
 #endif
 
 class NosuchVector {

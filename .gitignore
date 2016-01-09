@@ -1,4 +1,6 @@
 src/opencv/
+*.pdb
+*.idb
 
 # Compiled Object files
 *.slo
