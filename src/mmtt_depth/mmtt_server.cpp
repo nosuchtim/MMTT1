@@ -229,6 +229,7 @@ MmttServer::MmttServer(std::string defaultsfile)
 	mmtt_values["blob_maxsize"] = &val_blob_maxsize;
 	mmtt_values["blob_minsize"] = &val_blob_minsize;
 	mmtt_values["confidence"] = &val_confidence;
+	mmtt_values["depthfactor"] = &val_depthfactor;
 	mmtt_values["autowindow"] = &val_auto_window;
 	mmtt_values["shiftx"] = &val_shiftx;
 	mmtt_values["shifty"] = &val_shifty;
@@ -319,6 +320,7 @@ MmttServer::init_values() {
 	val_blob_maxsize = MmttValue(10000.0,0,15000.0);
 	val_blob_minsize = MmttValue(/* 65.0 */ 350,0,5000.0);
 	val_confidence = MmttValue(200,0,4000.0);
+	val_depthfactor = MmttValue(1.0, 0.00, 4.0);
 	val_shiftx = MmttValue(0,-639,639);
 	val_shifty = MmttValue(0,-479,479);
 	NosuchDebug(1,"TEMPORARY blob_minsize HACK - used to be 65.0");
@@ -708,6 +710,12 @@ MmttServer::shmem_update_outlines(MMTT_SharedMemHeader* h,
 		normalize_region_xy(blobcenterx,blobcentery,regionrect);
 
 		float depth = (float)sess->_depth_normalized;
+
+		// Take into account some factors that can be used to adjust for differences due
+		// to different palettes (e.g. the depth value in smaller palettes is small, so depthfactor
+		// can be used to expand it.
+		float dfactor = (float)(mmtt_values["depthfactor"]->internal_value);
+		depth = depth * dfactor;
 
 		float blobarea = float(blobrect.width * blobrect.height) / (regionrect.width*regionrect.height);
 
@@ -1573,6 +1581,7 @@ MmttServer::LoadPatchJson(std::string jstr)
 				return("The width of a region is larger than the camera width!?");
 			}
 
+			// NOTE: this silly mangling of x is undone when writing it back out
 			int x = _camWidth - c_x->valueint - c_width->valueint;
 			int y = c_y->valueint;
 			x += (int)val_shiftx.internal_value;
@@ -1677,6 +1686,9 @@ MmttServer::LoadConfigDefaultsJson(std::string jstr)
 
 	if ( (j=getNumber(json,"sharedmem")) != NULL ) {
 		_do_sharedmem = (j->valueint != 0);
+	}
+	if ((j = getNumber(json, "showfps")) != NULL) {
+		val_showfps.set_external_value(j->valueint != 0);
 	}
 	if ( (j=getNumber(json,"tuio")) != NULL ) {
 		_do_tuio = (j->valueint != 0);
@@ -1930,9 +1942,16 @@ MmttServer::SavePatch(std::string prefix, const char* id)
 		if ( r->_first_sid == 0 ) {
 			continue;
 		}
+
+		// Undo shift applied when reading in
+		int xinfile = _camWidth - r->_rect.x - r->_rect.width;
+		xinfile -= (int)(val_shiftx.internal_value);
+		int yinfile = r->_rect.y;
+		yinfile -= (int)(val_shifty.internal_value);
+
 		f_json << sep2 << "    { \"first_sid\": " << (r->_first_sid)
-			<< ", \"x\": " << r->_rect.x
-			<< ", \"y\": " << r->_rect.y
+			<< ", \"x\": " << (xinfile)
+			<< ", \"y\": " << (yinfile)
 			<< ", \"width\": " << r->_rect.width
 			<< ", \"height\": " << r->_rect.height
 			<< "}";
@@ -2698,6 +2717,12 @@ MmttServer::doTuio2( int nactive, int numblobs, std::vector<int> &blob_sid, std:
 			float depth = (float)sess->_depth_normalized;
 			float f = (float)(blobrect.width*blobrect.height) / (float)(regionrect.width*regionrect.height);
 
+			// Take into account some factors that can be used to adjust for differences due
+			// to different palettes (e.g. the depth value in smaller palettes is small, so depthfactor
+			// can be used to expand it.
+			float dfactor = (float)(mmtt_values["depthfactor"]->internal_value);
+			depth = depth * dfactor;
+
 			msg.clear();
 			msg.setAddress("/tuio/25Dblb");
 			msg.addStringArg("set");
@@ -2876,6 +2901,12 @@ MmttServer::doTuio1_25D( int nactive, int numblobs, std::vector<int> &blob_sid, 
 			// float depth = (float)(val_backtop.internal_value - sess->_depth_mm) / (float)val_backtop.internal_value;
 			float depth = (float)sess->_depth_normalized;
 			float f = (float)(blobrect.width*blobrect.height) / (float)(regionrect.width*regionrect.height);
+
+			// Take into account some factors that can be used to adjust for differences due
+			// to different palettes (e.g. the depth value in smaller palettes is small, so depthfactor
+			// can be used to expand it.
+			float dfactor = (float)(mmtt_values["depthfactor"]->internal_value);
+			depth = depth * dfactor;
 
 			msg.clear();
 			msg.setAddress("/tuio/25Dblb");

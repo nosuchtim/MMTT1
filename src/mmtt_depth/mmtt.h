@@ -292,6 +292,7 @@ class MmttServer {
 	MmttValue val_blob_maxsize;
 	MmttValue val_blob_minsize;
 	MmttValue val_confidence;
+	MmttValue val_depthfactor;
 	MmttValue val_shifty;
 	MmttValue val_shiftx;
 
