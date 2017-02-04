@@ -30,6 +30,9 @@
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_server.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\mmtt_depth\mmtt_sharedmem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="mmtt.ico">
@@ -75,7 +78,7 @@
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\nosuch\SharedMemHeader.h">
+    <ClInclude Include="..\..\src\mmtt_depth\mmtt_sharedmem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

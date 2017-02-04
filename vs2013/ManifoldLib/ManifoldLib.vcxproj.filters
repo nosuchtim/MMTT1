@@ -204,12 +204,6 @@
     <ClCompile Include="..\..\src\portmidi\pm_win\pmwinmm.c">
       <Filter>Source Files\portmidi\pm_win</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\nosuch\UT_SharedMem.cpp">
-      <Filter>Source Files\nosuch</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\nosuch\UT_Mutex.cpp">
-      <Filter>Source Files\nosuch</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\freeframe\ffutil.cpp">
       <Filter>Source Files\freeframe</Filter>
     </ClCompile>
@@ -221,9 +215,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\freeframe\FFGL.cpp">
       <Filter>Source Files\freeframe</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\nosuch\ShareMemHeader.cpp">
-      <Filter>Source Files\nosuch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,20 +254,8 @@
     <ClInclude Include="..\..\src\zlib\zlib.h">
       <Filter>Header Files\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\nosuch\UT_SharedMem.h">
-      <Filter>Header Files\nosuch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\nosuch\UT_Mutex.h">
-      <Filter>Header Files\nosuch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\nosuch\CHOP_SharedMemHeader.h">
-      <Filter>Header Files\nosuch</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\freeframe\ffutil.h">
       <Filter>Header Files\freeframe</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\nosuch\SharedMemHeader.h">
-      <Filter>Header Files\nosuch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

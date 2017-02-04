@@ -121,6 +121,7 @@
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_depth.cpp" />
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_kinect.cpp" />
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_server.cpp" />
+    <ClCompile Include="..\..\src\mmtt_depth\mmtt_sharedmem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="mmtt.ico" />
@@ -138,9 +139,9 @@
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_creative.h" />
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_depth.h" />
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_kinect.h" />
+    <ClInclude Include="..\..\src\mmtt_depth\mmtt_sharedmem.h" />
     <ClInclude Include="..\..\src\mmtt_depth\Resource.h" />
     <ClInclude Include="..\..\src\mmtt_depth\stdafx.h" />
-    <ClInclude Include="..\..\src\nosuch\SharedMemHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

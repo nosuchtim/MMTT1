@@ -102,9 +102,6 @@
     <ClCompile Include="..\..\src\cvblobslib\src\BlobOperators.cpp" />
     <ClCompile Include="..\..\src\cvblobslib\src\BlobResult.cpp" />
     <ClCompile Include="..\..\src\cvblobslib\src\ComponentLabeling.cpp" />
-    <ClCompile Include="..\..\src\nosuch\ShareMemHeader.cpp" />
-    <ClCompile Include="..\..\src\nosuch\UT_Mutex.cpp" />
-    <ClCompile Include="..\..\src\nosuch\UT_SharedMem.cpp" />
     <ClCompile Include="..\..\src\osc\src\OscBundle.cpp" />
     <ClCompile Include="..\..\src\osc\src\OscMessage.cpp" />
     <ClCompile Include="..\..\src\osc\src\OscSender.cpp" />
@@ -139,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\freeframe\ffutil.h" />
-    <ClInclude Include="..\..\src\nosuch\CHOP_SharedMemHeader.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchColor.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchDebug.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchGraphics.h" />
@@ -151,9 +147,6 @@
     <ClInclude Include="..\..\src\nosuch\NosuchSocket.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchUtil.h" />
     <ClInclude Include="..\..\src\nosuch\sha1.h" />
-    <ClInclude Include="..\..\src\nosuch\SharedMemHeader.h" />
-    <ClInclude Include="..\..\src\nosuch\UT_Mutex.h" />
-    <ClInclude Include="..\..\src\nosuch\UT_SharedMem.h" />
     <ClInclude Include="..\..\src\zlib\zlib.h" />
   </ItemGroup>
   <ItemGroup>
