@@ -9,7 +9,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>
     </LocalDebuggerEnvironment>
-    <LocalDebuggerWorkingDirectory>
-    </LocalDebuggerWorkingDirectory>
+    <LocalDebuggerCommand>$(TargetDir)\..\..\..\bin\mmtt_kinect1.exe</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(TargetDir)\..\..\..\bin</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
 </Project>
