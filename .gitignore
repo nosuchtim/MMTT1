@@ -1,4 +1,7 @@
 src/opencv/
+vs2013/ManifoldLib/Debug
+vs2013/mmtt_depth/Debug
+
 *.pdb
 *.idb
 
