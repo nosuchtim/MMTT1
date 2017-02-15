@@ -1,9 +1,0 @@
-TOGGLE_PARAM(bounce);
-TOGGLE_PARAM(filled);
-TOGGLE_PARAM(rotauto);
-TOGGLE_PARAM(arpeggio);
-TOGGLE_PARAM(cursorsprites);
-TOGGLE_PARAM(doquantize);
-TOGGLE_PARAM(fullrange);
-TOGGLE_PARAM(outlinesprites);
-TOGGLE_PARAM(quantfixed);

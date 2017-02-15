@@ -83,14 +83,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\cJSON\cJSON.cpp" />
-    <ClCompile Include="..\..\src\freeframe\FFGL.cpp" />
-    <ClCompile Include="..\..\src\freeframe\FFGLPluginInstance.cpp" />
-    <ClCompile Include="..\..\src\freeframe\ffutil.cpp" />
-    <ClCompile Include="..\..\src\freeframe\WinPluginInstance.cpp" />
     <ClCompile Include="..\..\src\nosuch\NosuchDebug.cpp" />
     <ClCompile Include="..\..\src\nosuch\NosuchException.cpp" />
     <ClCompile Include="..\..\src\nosuch\NosuchHttp.cpp" />
-    <ClCompile Include="..\..\src\nosuch\NosuchMidi.cpp" />
     <ClCompile Include="..\..\src\nosuch\NosuchOscInput.cpp" />
     <ClCompile Include="..\..\src\nosuch\NosuchOscTcpInput.cpp" />
     <ClCompile Include="..\..\src\nosuch\NosuchOscUdpInput.cpp" />
@@ -113,7 +108,6 @@
     <ClCompile Include="..\..\src\oscpack\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\src\oscpack\osc\OscTypes.cpp" />
     <ClCompile Include="..\..\src\portmidi\pm_common\pmutil.c" />
-    <ClCompile Include="..\..\src\portmidi\pm_common\portmidi.c" />
     <ClCompile Include="..\..\src\portmidi\pm_win\pmwin.c" />
     <ClCompile Include="..\..\src\portmidi\pm_win\pmwinmm.c" />
     <ClCompile Include="..\..\src\portmidi\porttime\porttime.c" />
@@ -135,7 +129,6 @@
     <ClCompile Include="..\..\src\zlib\zutil.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\freeframe\ffutil.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchColor.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchDebug.h" />
     <ClInclude Include="..\..\src\nosuch\NosuchGraphics.h" />

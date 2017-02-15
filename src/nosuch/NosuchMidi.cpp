@@ -1,3 +1,4 @@
+#if 0
 #include "NosuchUtil.h"
 #include "NosuchException.h"
 #include "NosuchMidi.h"
@@ -26,3 +27,4 @@ char* ReadableMidiPitch(int p) {
 	}
 	return ReadableMidiPitches[p];
 }
+#endif

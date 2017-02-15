@@ -1,3 +1,4 @@
+#if 0
 #ifdef _MSC_VER
  #pragma warning(disable: 4244) // stop warnings about downsize typecasts
  #pragma warning(disable: 4018) // stop warnings about signed/unsigned
@@ -1135,3 +1136,4 @@ unsigned int pm_read_bytes(PmInternal *midi, const unsigned char *data,
 }
 
 
+#endif

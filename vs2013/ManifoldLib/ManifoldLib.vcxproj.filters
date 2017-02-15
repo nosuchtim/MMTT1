@@ -55,12 +55,6 @@
     <Filter Include="Source Files\portmidi\pm_win">
       <UniqueIdentifier>{7079ba56-b249-45c4-8737-3b5063686864}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\freeframe">
-      <UniqueIdentifier>{4094b51e-a002-424d-a3e3-0b396ccbff0d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\freeframe">
-      <UniqueIdentifier>{8c5876ab-73e1-466d-8901-33bb1643e8b5}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\cJSON\cJSON.cpp">
@@ -73,9 +67,6 @@
       <Filter>Source Files\nosuch</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\nosuch\NosuchHttp.cpp">
-      <Filter>Source Files\nosuch</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\nosuch\NosuchMidi.cpp">
       <Filter>Source Files\nosuch</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\nosuch\NosuchOscInput.cpp">
@@ -189,9 +180,6 @@
     <ClCompile Include="..\..\src\portmidi\pm_common\pmutil.c">
       <Filter>Source Files\portmidi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\portmidi\pm_common\portmidi.c">
-      <Filter>Source Files\portmidi</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\portmidi\porttime\porttime.c">
       <Filter>Source Files\portmidi\porttime</Filter>
     </ClCompile>
@@ -203,18 +191,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\portmidi\pm_win\pmwinmm.c">
       <Filter>Source Files\portmidi\pm_win</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\freeframe\ffutil.cpp">
-      <Filter>Source Files\freeframe</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\freeframe\WinPluginInstance.cpp">
-      <Filter>Source Files\freeframe</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\freeframe\FFGLPluginInstance.cpp">
-      <Filter>Source Files\freeframe</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\freeframe\FFGL.cpp">
-      <Filter>Source Files\freeframe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,9 +229,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\zlib\zlib.h">
       <Filter>Header Files\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\freeframe\ffutil.h">
-      <Filter>Header Files\freeframe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

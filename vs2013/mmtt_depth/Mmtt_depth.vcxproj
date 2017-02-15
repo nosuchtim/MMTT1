@@ -14,7 +14,7 @@
     <ProjectGuid>{303F81B0-4C85-4F40-8CFC-54D85EA83F9B}</ProjectGuid>
     <RootNamespace>SpaceManifold</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>Mmtt1</ProjectName>
+    <ProjectName>tuio3d_kinect1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -69,9 +69,8 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opencv_highgui2410d.lib;opencv_core2410d.lib;opencv_flann2410d.lib;opencv_ml2410d.lib;opencv_imgproc2410d.lib;libjpegd.lib;libpngd.lib;libtiffd.lib;libjasperd.lib;IlmImfd.lib;pthreadVC2.lib;ManifoldLib.lib;winmm.lib;Kinect10.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>Debug\Mmtt1.exe</OutputFile>
-      <AdditionalLibraryDirectories>..\..\src\opencv\build\x86\vc12\staticlib;..\..\vs2013\ManifoldLib\Debug;..\..\src\pthreads-win32-2.8.0\Pre-built.2\lib;C:\Python26\libs;C:\Program Files\Microsoft SDKs\Kinect\v1.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_highgui2411d.lib;opencv_core2411d.lib;opencv_flann2411d.lib;opencv_ml2411d.lib;opencv_imgproc2411d.lib;libjpegd.lib;libpngd.lib;libtiffd.lib;libjasperd.lib;IlmImfd.lib;pthreadVC2.lib;ManifoldLib.lib;winmm.lib;Kinect10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\src\opencv\build\x86\vc12\staticlib;..\..\vs2013\ManifoldLib\Debug;..\..\src\pthreads-win32-2.8.0\Pre-built.2\lib;C:\Program Files\Microsoft SDKs\Kinect\v1.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -80,7 +79,7 @@
       <Profile>false</Profile>
     </Link>
     <PostBuildEvent>
-      <Command>copy Debug\Mmtt1.exe ..\..\bin\Mmtt1.exe</Command>
+      <Command>copy Debug\tuio3d_kinect1.exe ..\..\bin\tuio3d_kinect1.exe</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -117,7 +116,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\mmtt_depth\main.cpp" />
-    <ClCompile Include="..\..\src\mmtt_depth\mmtt_creative.cpp" />
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_depth.cpp" />
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_kinect.cpp" />
     <ClCompile Include="..\..\src\mmtt_depth\mmtt_server.cpp" />
@@ -132,11 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\mmtt_depth\Cursor.h" />
-    <ClInclude Include="..\..\src\mmtt_depth\Event.h" />
     <ClInclude Include="..\..\src\mmtt_depth\ImageRenderer.h" />
     <ClInclude Include="..\..\src\mmtt_depth\mmtt.h" />
-    <ClInclude Include="..\..\src\mmtt_depth\mmtt_camera.h" />
-    <ClInclude Include="..\..\src\mmtt_depth\mmtt_creative.h" />
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_depth.h" />
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_kinect.h" />
     <ClInclude Include="..\..\src\mmtt_depth\mmtt_sharedmem.h" />

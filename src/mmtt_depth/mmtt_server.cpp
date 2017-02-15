@@ -51,7 +51,6 @@
 #include "mmtt.h"
 #include "mmtt_depth.h"
 #include "NosuchMidi.h"
-#include "Event.h"
 #include "Cursor.h"
 
 #include "BlobResult.h"
@@ -134,7 +133,6 @@ MmttServer::MmttServer(std::string defaultsfile)
 	_regionsDefinedByPatch = false;
 	_showrawdepth = false;
 	_showregionrects = true;
-	_python_disabled = false;
 
 	registrationState = 0;
 	continuousAlign = false;
@@ -175,17 +173,6 @@ MmttServer::MmttServer(std::string defaultsfile)
 	}
 
 	init_values();
-
-	if ( _do_python ) {
-		if ( ! python_init() ) {
-			NosuchDebug("python_init failed!");
-		} else {
-			NosuchDebug("python_init succeeded!");
-			NosuchDebug("NosuchDebug python_init succeeded!");
-		}
-	} else {
-			NosuchDebug("python is not enabled.");
-	}
 
 	_camWidth = camera->width();
 	_camHeight = camera->height();
@@ -1614,7 +1601,6 @@ MmttServer::LoadGlobalDefaults()
 	_jsonport = 4444;
 	_do_sharedmem = false;
 	_do_tuio = true;
-	_do_python = false;
 	_do_initialalign = false;
 	_patchFile = "";
 	_cameraType = "kinect";
@@ -1737,9 +1723,6 @@ MmttServer::LoadConfigDefaultsJson(std::string jstr)
 	}
 	if ( (j=getString(json,"debuglogfile")) != NULL ) {
 		NosuchDebugSetLogDirFile(_tempDir,std::string(j->valuestring));
-	}
-	if ( (j=getNumber(json,"python")) != NULL ) {
-		_do_python = j->valueint?TRUE:FALSE;
 	}
 }
 
@@ -2414,12 +2397,6 @@ MmttServer::analyzePixels()
 				map<int,MmttSession*>::iterator erase_it = it;
 				it++;
 
-				if ( _do_python ) {
-					// NosuchDebug("CursorUp! sid=%d",sid);
-					NosuchVector pos = NosuchVector(sess->_center.x,sess->_center.y);
-					addPyEvent(new CursorUpPyEvent(r->name,sid,pos));
-				}
-
 				delete sess;
 				r->_sessions.erase(erase_it);
 			}
@@ -2512,29 +2489,6 @@ MmttServer::analyzePixels()
 		}
 		if ( _Tuio2_Clients.size() > 0 ) {
 			doTuio2(nactive,numblobs,blob_sid,blob_region,blob_center);
-		}
-	}
-
-	if ( _do_python ) {
-		for ( int i=0; i<numblobs; i++ ) {
-			MmttRegion* r = blob_region[i];
-			if ( r == NULL ) {
-				continue;
-			}
-			int sid = blob_sid[i];
-			MmttSession* s = r->_sessions[sid];
-			CvPoint c = blob_center[i];
-			NosuchVector pos = NosuchVector(c.x,c.y);
-			if ( _framenum == s->_frame_born ) {
-				// NosuchDebug("CursorDown sid=%d framenum=%d frame_born=%d",sid,_framenum,s->_frame_born);
-				addPyEvent(new CursorDownPyEvent(r->name,sid,pos,s->_depth_normalized));
-			} else {
-				// NosuchDebug("CursorDrag sid=%d framenum=%d frame_born=%d",sid,_framenum,s->_frame_born);
-				addPyEvent(new CursorDragPyEvent(r->name,sid,pos,s->_depth_normalized));
-			}
-		}
-		if ( _pyevents.size() > 0 ) {
-			std::string msg = python_draw();
 		}
 	}
 
@@ -3208,321 +3162,6 @@ MmttServer::makeMmttServer(std::string configpath)
 	return server;
 }
 
-static PyObject* mmtt_publicpath(PyObject* self, PyObject* args)
-{
-    const char* filename;
- 
-    if (!PyArg_ParseTuple(args, "s", &filename))
-        return NULL;
- 
-	std::string path = NosuchFullPath(std::string(filename));
-	NosuchDebug("(python) path= %s",path.c_str());
-	return PyString_FromString(path.c_str());
-}
- 
-static PyObject* mmtt_debug(PyObject* self, PyObject* args)
-{
-    const char* name;
- 
-    if (!PyArg_ParseTuple(args, "s", &name))
-        return NULL;
- 
-	NosuchDebug("(python) %s",name);
- 
-    Py_RETURN_NONE;
-}
-
-static PyObject* mmtt_next_event(PyObject* self, PyObject* args)
-{
-	PyEvent* ev = ThisServer->popPyEvent();
-	if ( ev == NULL ) {
-	    Py_RETURN_NONE;
-	} else {
-		PyObject* e = ev->python_object();
-		delete ev;
-		return e;
-	}
-}
-
-static PyMethodDef MmttMethods[] =
-{
-     {"publicpath", mmtt_publicpath, METH_VARARGS, "Return path to a public file."},
-     {"next_event", mmtt_next_event, METH_VARARGS, "Get next event."},
-     {"debug", mmtt_debug, METH_VARARGS, "Log debug output."},
-     {NULL, NULL, 0, NULL}
-};
-
-bool MmttServer::python_init() {
-	NosuchDebug(1,"python_init A");
-	if ( ! Py_IsInitialized() ) {
-		NosuchDebug("Initializing python");
-		Py_Initialize();
-		if ( ! Py_IsInitialized() ) {
-			python_disable("Unable to initialize python?");
-			return FALSE;
-		}
-	} else {
-		NosuchDebug("NOT initializing python, already running!");
-	}
-
-	NosuchDebug(1,"python_init B");
-    (void) Py_InitModule("mmtt.builtin", MmttMethods);
-
-	// We want to add our directory to the sys.path
-	std::string script = NosuchSnprintf(
-		"import sys\n"
-		"sys.path.insert(0,'%s')\n",
-			MmttForwardSlash(NosuchFullPath("python")).c_str()
-		);
-	NosuchDebug(1,"python_init C");
-	NosuchDebug(1,"Running script=%s",script.c_str());
-	PyRun_SimpleString(script.c_str());
-
-	/// DEBUG STUFF
-	script = NosuchSnprintf(
-		"try:\n"
-		"  import sys\n"
-		"  f = open('c:/tmp/mmtt.out','w')\n"
-		"  f.write(sys.path.__str__())\n"
-		"  f.close()\n"
-		"except:\n"
-		"  f2 = open('c:/tmp/mmtt.err','w')\n"
-		"  f2.write('ERROR!')\n"
-		"  f2.close()\n"
-		);
-	NosuchDebug(1,"Running script=%s",script.c_str());
-	PyRun_SimpleString(script.c_str());
-	/// END OF DEBUG
-
-	const char* mmttutil = "mmtt.util";
-
-	PyObject *pName = PyString_FromString(mmttutil);
-    _MmttUtilModule = PyImport_Import(pName);
-    Py_DECREF(pName);
-	NosuchDebug(1,"python_init D");
-
-	if ( _MmttUtilModule == NULL) {
-		python_disable("Unable to import "+std::string(mmttutil)+" module");
-		return FALSE;
-	}
-
-	if ( !python_getUtilValues() ) {
-		python_disable("Failed in python_getUtilValues");
-		return FALSE;
-	}
-
-	NosuchDebug("Trying to recompile mmtt.util");
-	// Note: it's always mmtt, no matter what the Plugin name is, see comment above
-	if ( python_recompileModule(mmttutil) == FALSE ) {
-		python_disable("Unable to recompile mmtt.util module");
-		return FALSE;
-	}
-	NosuchDebug("recompile mmtt.util worked");
-
-	// Not really sure this re-getting of the UtilValues is needed, or
-	// makes a difference.  There's some kind of bug that happens occasionally
-	// when there's an error (syntax or execution) in recompiling the module,
-	// and this was an attempt to figure it out.
-	if ( !python_getUtilValues() ) {
-		python_disable("Failed in python_getUtilValues (second phase)");
-		return FALSE;
-	}
-
-	NosuchDebug(1,"python_init F");
-	std::string nm = "Default";
-	if ( !python_change_processor(nm) ) {
-		NosuchDebug("Unable to change processor to %s",nm.c_str());
-		// No longer disable python when there's a problem in changing the processor.
-		// python_disable(NosuchSnprintf("Unable to change processor to %s",nm.c_str()));
-		return FALSE;
-	}
-	NosuchDebug("python_init G");
-
-	return TRUE;
-}
-
-static PyObject*
-getpythonfunc(PyObject *module, char *name)
-{
-	PyObject *f = PyObject_GetAttrString(module, name);
-	if (!(f && PyCallable_Check(f))) {
-		NosuchErrorOutput("Unable to find python function: %s",name);
-		return NULL;
-	}
-	return f;
-}
-
-PyObject*
-MmttServer::python_getProcessorObject(std::string btype)
-{
-	NosuchDebug(1,"python_getProcessorObject A");
-	const char* b = btype.c_str();
-	PyObject *pArgs = Py_BuildValue("(s)", b);
-	if ( pArgs == NULL ) {
-		NosuchDebug("Cannot create python arguments to _getProcessorFunc");
-		return NULL;
-	}            
-	NosuchDebug(1,"python_getProcessorObject B btype=%s getProcessorFunc=%ld",b,(long)_getProcessorFunc);
-	PyObject *obj = python_lock_and_call(_getProcessorFunc, pArgs);
-	Py_DECREF(pArgs);
-	if (obj == NULL) {
-		NosuchDebug("Call to _getProcessorFunc failed");
-		return NULL;
-	}
-	NosuchDebug(1,"python_getProcessorObject C");
-	if (obj == Py_None) {
-		NosuchDebug("Call to _getProcessorFunc returned None?");
-		return NULL;
-	}
-	NosuchDebug(1,"python_getProcessorObject D");
-	return obj;
-}
-
-bool
-MmttServer::python_change_processor(std::string behavename) {
-
-	PyObject *new_processorObj;
-	PyObject *new_processorDrawFunc;
-
-	NosuchDebug("python_change_processor behavename=%s",behavename.c_str());
-	if ( !(new_processorObj = python_getProcessorObject(behavename))) {
-		NosuchDebug("python_getProcessorObject returned NULL!");
-		// _processorObj = NULL;
-		_processorDrawFunc = NULL;
-		return FALSE;
-	}
-	NosuchDebug("python_change_processor after calling getProcessorObject");
-	if ( !(new_processorDrawFunc = getpythonfunc(new_processorObj, "processOpenGL")) ) {
-		// _processorObj = NULL;
-		_processorDrawFunc = NULL;
-		return FALSE;
-	}
-
-	// _processorObj = new_processorObj;
-	_processorDrawFunc = new_processorDrawFunc;
-	return TRUE;
-}
-
-bool
-MmttServer::python_getUtilValues()
-{
-	if (!(_recompileFunc = getpythonfunc(_MmttUtilModule,"recompile"))) {
-		python_disable("Can't get recompile function from mmtt module?!");
-		return FALSE;
-	}
-
-	if (!(_callBoundFunc=getpythonfunc(_MmttUtilModule,"callboundfunc"))) {
-		python_disable("Unable to find callboundfunc func");
-		return FALSE;
-	}
-
-	if (!(_getProcessorFunc=getpythonfunc(_MmttUtilModule,"getprocessor"))) {
-		python_disable("Unable to find getprocessor func");
-		return FALSE;
-	}
-
-	return TRUE;
-}
- 
-void MmttServer::lock_python() {
-	// We don't actually need this, right now, since FreeFrame plugins should never
-	// be running simultaneously.
-#ifdef PYFFLE_LOCK
-	PyffleLock(&python_mutex,"python");
-#endif
-}
-
-void MmttServer::unlock_python() {
-#ifdef PYFFLE_LOCK
-	PyffleUnlock(&python_mutex,"python");
-#endif
-}
-
-PyObject*
-MmttServer::python_lock_and_call(PyObject* func, PyObject *pArgs)
-{
-	lock_python();
-	PyObject *msgValue = PyObject_CallObject(func, pArgs);
-	unlock_python();
-	return msgValue;
-}
-
-std::string
-MmttServer::python_draw()
-{
-	if ( _processorDrawFunc == NULL ) {
-		// This is expected when there's been
-		// a syntax or execution error in the python code
-		NosuchDebug(1,"_processorDrawFunc==NULL?");
-		return "";
-	}
-	if ( _callBoundFunc == NULL ) {
-		NosuchDebug("_callBoundFunc==NULL?");
-		return "";
-	}
-
-	PyObject *pArgs = Py_BuildValue("(O)",_processorDrawFunc);
-	if ( pArgs == NULL ) {
-		return "Cannot create python arguments to _callBoundFunc";
-	}            
-	PyObject *msgobj = python_lock_and_call(_callBoundFunc, pArgs);
-	Py_DECREF(pArgs);
-	
-	if (msgobj == NULL) {
-		return "Call to _callBoundFunc failed";
-	}
-	if (msgobj == Py_None) {
-		return "Call to _callBoundFunc returned None?";
-	}
-	std::string msg = std::string(PyString_AsString(msgobj));
-	Py_DECREF(msgobj);
-	if ( msg != "" ) {
-		NosuchDebug("python_callprocessor returned msg = %s",msg.c_str());
-		NosuchDebug("Disabling drawing function");
-		_processorDrawFunc = NULL;
-	}
-	return msg;
-}
-
-bool
-MmttServer::python_recompileModule(const char *modulename)
-{
-	PyObject *pArgs;
-	bool r = FALSE;
-
-	if ( _recompileFunc == NULL ) {
-		NosuchDebug("Hey, _recompileFunc is NULL!?");
-		return FALSE;
-	}
-
-	pArgs = Py_BuildValue("(s)", modulename);
-	if ( pArgs == NULL ) {
-		NosuchDebug("Cannot create python arguments to recompile");
-		goto getout;
-	}            
-	PyObject *msgValue = python_lock_and_call(_recompileFunc, pArgs);
-	Py_DECREF(pArgs);
-	if (msgValue == NULL) {
-		NosuchDebug("Call to recompile of %s failed\n",modulename);
-	} else if (msgValue == Py_None) {
-		NosuchDebug("Call to recompile of %s returned None?\n",modulename);
-	} else {
-		char *msg = PyString_AsString(msgValue);
-		r = (*msg != '\0') ? FALSE : TRUE;
-		if ( r == FALSE ) {
-			NosuchDebug("Call to recompile of %s failed, msg=%s\n",modulename,msg);
-		}
-		Py_DECREF(msgValue);
-	}
-getout:
-	return r;
-}
-
-void MmttServer::python_disable(std::string msg) {
-	NosuchErrorOutput("python is being disabled!  msg=%s",msg.c_str());
-	_python_disabled = TRUE;
-}
-
 std::string
 MmttForwardSlash(std::string filepath) {
 	size_t i;
@@ -3537,26 +3176,4 @@ bool isFullPath(std::string path) {
 		return true;
 	}
 	return false;
-}
-
-void MmttServer::addPyEvent(PyEvent* e) {
-	if ( ! python_events_disabled() ) {
-		_pyevents.push_back(e);
-	}
-}
-
-PyEvent* MmttServer::popPyEvent() {
-	if ( python_events_disabled() ) {
-		return NULL;
-	}
-	PyEvent* e;
-	// LockMmttServer();
-	if ( _pyevents.size() == 0 )
-		e = NULL;
-	else {
-		e = _pyevents.front();
-		_pyevents.pop_front();
-	}
-	// UnlockMmttServer();
-	return e;
 }

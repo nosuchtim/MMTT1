@@ -30,8 +30,6 @@
 #ifndef MMTT_H
 #define MMTT_H
 
-#include "mmtt_camera.h"
-
 #include <vector>
 #include <map>
 #include <iostream>
@@ -47,19 +45,6 @@
 #include "NosuchException.h"
 #include "NosuchGraphics.h"
 
-#ifdef _DEBUG
-// We do this dance because we don't want Python.h to pull in python*_d.lib,
-// since python*_d.lib is not part of the standard Python binary distribution.
-#   undef _DEBUG
-#   include "Python.h"
-#   define _DEBUG
-#else
-#   include "Python.h"
-#endif
-
-// #include "Event.h"
-// #include "Cursor.h"
-class PyEvent;
 class Cursor;
 
 class MMTT_SharedMem;
@@ -178,20 +163,6 @@ class MmttServer {
 	static void ErrorPopup(LPCWSTR msg);
 	static void ErrorPopup(const char* msg);
 
-	bool		python_init();
-	bool		python_recompileModule(const char *modulename);
-	bool		python_getUtilValues();
-	int			python_runfile(std::string filename);
-	bool		python_reloadPyffleUtilModule();
-	void		python_disable(std::string msg);
-	std::string python_draw();
-	bool		python_change_processor(std::string behavename);
-	PyObject*	python_getProcessorObject(std::string btype);
-	PyObject*	python_lock_and_call(PyObject* func, PyObject *pArgs);
-	bool		python_events_disabled() { return false; }
-	void		lock_python();
-	void		unlock_python();
-
 	int cameraIndex() { return _cameraIndex; };
 	std::string cameraName() { return NosuchSnprintf("%s#%d",_cameraType.c_str(),_cameraIndex); };
 
@@ -200,17 +171,6 @@ class MmttServer {
 	void cursorDown(Cursor* c);
 	void cursorDrag(Cursor* c);
 	void cursorUp(Cursor* c);
-	void addPyEvent(PyEvent* e);
-	PyEvent* popPyEvent();
-
-	PyObject *_recompileFunc;
-	// PyObject *_processorObj;
-	PyObject *_processorDrawFunc;
-	PyObject *_getProcessorFunc;
-	PyObject *_callBoundFunc;
-    PyObject *_MmttUtilModule;
-
-	std::list<PyEvent*> _pyevents;
 
 	void InitOscClientLists();
 	void SetOscClientList(std::string& clientlist,std::vector<OscSender*>& clientvector);
@@ -347,8 +307,6 @@ private:
 	bool _do_sharedmem;
 	bool _do_tuio;
 	bool _do_initialalign;
-	bool _python_disabled;
-	bool _do_python;
 	std::string _status;
 
 	int _jsonport;

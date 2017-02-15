@@ -28,19 +28,9 @@
 */
 
 #include "mmtt.h"
-#include "mmtt_camera.h"
 #include "mmtt_depth.h"
-#include "mmtt_creative.h"
 #include "mmtt_kinect.h"
 
 DepthCamera* DepthCamera::makeDepthCamera(MmttServer* s, std::string camtype) {
-#ifdef CREATIVE_CAMERA
-	if ( camtype == "creative" || camtype == "pcx" ) {
-		return new CreativeDepthCamera(s);
-	}
-#endif
-	if ( camtype == "kinect" ) {
-		return new KinectDepthCamera(s);
-	}
-	return NULL;
+	return new KinectDepthCamera(s);
 }
